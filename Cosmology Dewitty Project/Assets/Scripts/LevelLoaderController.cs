@@ -17,7 +17,6 @@ public class LevelLoaderController : MonoBehaviour
     {
         RestartScene();
         ExitApplication();
-        
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
