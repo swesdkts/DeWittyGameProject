@@ -19,10 +19,15 @@ public class LevelLoaderController : MonoBehaviour
         {
             StartCoroutine(LoadScene("SampleScene"));
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
-    When starting the coroutine, put the name of the scene you want to transition to as a string.
+    When starting the coroutine, put the name of the scene you want to transition to as a string inside the parentheses.
 
     Example: StartCoroutine(LoadScene("SampleScene")); */
     public IEnumerator LoadScene(string nextScene)
