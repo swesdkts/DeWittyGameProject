@@ -15,15 +15,9 @@ public class LevelLoaderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(LoadScene("SampleScene"));
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        RestartScene();
+        ExitApplication();
+        
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
@@ -36,4 +30,21 @@ public class LevelLoaderController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextScene.ToString());
     }
+
+    private void RestartScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(LoadScene("SampleScene"));
+        }
+    }
+
+    private void ExitApplication()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
 }
