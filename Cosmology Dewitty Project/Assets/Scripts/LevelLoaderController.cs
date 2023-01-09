@@ -16,7 +16,6 @@ public class LevelLoaderController : MonoBehaviour
     void Update()
     {
         RestartScene();
-        ExitApplication();
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
@@ -35,14 +34,6 @@ public class LevelLoaderController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(LoadScene("SampleScene"));
-        }
-    }
-
-    private void ExitApplication()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
         }
     }
 
