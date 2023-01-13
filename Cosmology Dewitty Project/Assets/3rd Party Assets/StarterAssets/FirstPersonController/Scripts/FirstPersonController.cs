@@ -21,6 +21,9 @@ namespace StarterAssets
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
+		[Tooltip("If the camera can rotate or not")]
+		[HideInInspector]
+		public bool allowRotate = true;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -118,7 +121,7 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			// if there is an input
-			if (input.look.sqrMagnitude >= threshold)
+			if ((input.look.sqrMagnitude >= threshold) && allowRotate)
 			{
 				cinemachineTargetPitch += input.look.y * RotationSpeed * Time.deltaTime;
 				rotationVelocity = input.look.x * RotationSpeed * Time.deltaTime;

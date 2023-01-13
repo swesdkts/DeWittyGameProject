@@ -15,6 +15,11 @@ public class ObjectInteract : MonoBehaviour
 
     public bool playerInRange = false;
 
+    #region Player and Mouse
+    public bool needMouseAccess;
+    public GameObject player;
+    #endregion
+
     #region Object Information Overlay
     public Canvas objectInfoOverlayCanvas;
 
@@ -22,6 +27,7 @@ public class ObjectInteract : MonoBehaviour
     #endregion
 
     #region Particle System To Be Triggered (If it exists)
+    
     public ParticleSystem particleSystemToTrigger;
 
     public void PlayParticles()
@@ -33,7 +39,13 @@ public class ObjectInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pressToInteractOverlayCanvas.enabled = false;
+        if (objectInfoOverlayCanvas != null)
+        {
+            HideObjectInfoOverlay();
+        }
+        HidePressToInteractOverlay();
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -114,6 +126,13 @@ public class ObjectInteract : MonoBehaviour
         objectInfoOverlayCanvas.enabled = true;
 
         objectInfoOverlayDeployed = true;
+
+        if (needMouseAccess == true)
+        {
+            player.GetComponent<FirstPersonController>().allowRotate = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void HideObjectInfoOverlay()
@@ -125,6 +144,13 @@ public class ObjectInteract : MonoBehaviour
         if (playerInRange)
         {
             DeployPressToInteractOverlay();
+        }
+
+        if (needMouseAccess == true)
+        {
+
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

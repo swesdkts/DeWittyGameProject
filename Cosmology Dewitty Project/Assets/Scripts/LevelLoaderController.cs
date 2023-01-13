@@ -15,7 +15,8 @@ public class LevelLoaderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RestartScene();
+        TryRestartScene();
+        TryExitGame();
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
@@ -29,11 +30,26 @@ public class LevelLoaderController : MonoBehaviour
         SceneManager.LoadScene(nextScene.ToString());
     }
 
-    private void RestartScene()
+    public IEnumerator ExitGame()
+    {
+        animator.SetTrigger("FadeToBlack");
+        yield return new WaitForSeconds(1);
+        Application.Quit();
+    }
+
+    private void TryRestartScene()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(LoadScene("SampleScene"));
+        }
+    }
+
+    private void TryExitGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ExitGame());
         }
     }
 
