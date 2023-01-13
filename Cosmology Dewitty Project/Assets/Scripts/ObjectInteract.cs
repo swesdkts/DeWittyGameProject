@@ -129,7 +129,7 @@ public class ObjectInteract : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            player.GetComponent<FirstPersonController>().allowRotate = false;
+            //player.GetComponent<FirstPersonController>().allowRotate = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
