@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     Vector2 horizontalInput;
 
     [SerializeField] float gravity = -30f;
-    [SerializeField] Vector3 verticalVelocity = Vector3.zero;
+    Vector3 verticalVelocity = Vector3.zero;
     [SerializeField] LayerMask groundMask;
     [SerializeField] GameObject groundCheck;
     bool isGrounded;
