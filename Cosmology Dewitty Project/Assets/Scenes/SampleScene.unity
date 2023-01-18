@@ -6943,8 +6943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cf5612e369aca4493f1d3605358ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivityX: 7
+  sensitivityY: 0.01
+  playerCamera: {fileID: 2094494233}
+  xClamp: 85
 --- !u!54 &493062872
 Rigidbody:
   m_ObjectHideFlags: 0
