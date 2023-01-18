@@ -6911,6 +6911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 493062870}
+  cameraController: {fileID: 493062871}
 --- !u!114 &493062870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6926,7 +6927,6 @@ MonoBehaviour:
   controller: {fileID: 493062867}
   speed: 11
   gravity: -10
-  verticalVelocity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6943,6 +6943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cf5612e369aca4493f1d3605358ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivityX: 8
+  sensitivityY: 8
 --- !u!54 &493062872
 Rigidbody:
   m_ObjectHideFlags: 0

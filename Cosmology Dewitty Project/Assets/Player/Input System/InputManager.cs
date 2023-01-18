@@ -7,8 +7,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] PlayerController movement;
     PlayerControls controls;
     PlayerControls.GroundMovementActions groundMovement;
+    [SerializeField] CameraController cameraController;
 
     Vector2 horizontalInput;
+    Vector2 mouseInput;
 
     void Awake()
     {
@@ -16,6 +18,16 @@ public class InputManager : MonoBehaviour
         groundMovement = controls.GroundMovement;
 
         groundMovement.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
+
+        groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
+        groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+    }
+
+    private void Update()
+    {
+        movement.ReceiveInput(horizontalInput);
+
+        cameraController.ReceiveInput(mouseInput);
     }
 
     private void OnEnable()
@@ -26,10 +38,5 @@ public class InputManager : MonoBehaviour
     private void OnDestroy()
     {
         controls.Disable();
-    }
-
-    private void Update()
-    {
-        movement.ReceiveInput(horizontalInput);
     }
 }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float sensitivityX = 8;
+    [SerializeField] float sensitivityY = 0.5f;
+    float mouseX, mouseY;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
+    }
+
+    public void ReceiveInput(Vector2 mouseInput)
+    {
+        mouseX = mouseInput.x * sensitivityX;
+        mouseY = mouseInput.y * sensitivityY;
     }
 }
