@@ -129,7 +129,7 @@ public class ObjectInteract : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            //player.GetComponent<FirstPersonController>().allowRotate = false;
+            player.GetComponent<CameraController>().allowRotate = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
@@ -148,7 +148,7 @@ public class ObjectInteract : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-
+            player.GetComponent<CameraController>().allowRotate = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }

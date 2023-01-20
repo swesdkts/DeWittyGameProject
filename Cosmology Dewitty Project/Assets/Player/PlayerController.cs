@@ -14,11 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject groundCheck;
     bool isGrounded;
 
-    public void ReceiveInput (Vector2 _horizontalInput)
-    {
-        horizontalInput = _horizontalInput;
-    }
-
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.transform.position, 0.1f, groundMask);
@@ -33,5 +28,10 @@ public class PlayerController : MonoBehaviour
 
         verticalVelocity.y += gravity * Time.deltaTime;
         controller.Move(verticalVelocity * Time.deltaTime);
+    }
+
+    public void ReceiveInput (Vector2 _horizontalInput)
+    {
+        horizontalInput = _horizontalInput;
     }
 }

@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] float sensitivityX = 8;
-    [SerializeField] float sensitivityY = 0.5f;
+    public float sensitivity = 1;
+    float sensitivityX = 4.5f;
+    float sensitivityY = 0.005625f;
     float mouseX, mouseY;
 
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
     float xRotation = 0f;
 
+    public bool allowRotate = true;
+
+    void Start()
+    {
+        sensitivityX = sensitivityX * sensitivity;
+        sensitivityY = sensitivityY * sensitivity;
+    }
+
     void Update()
     {
+        if (allowRotate)
+        {
         transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
 
         xRotation -= mouseY;
@@ -21,6 +32,7 @@ public class CameraController : MonoBehaviour
         Vector3 targetRotation = transform.eulerAngles;
         targetRotation.x = xRotation;
         playerCamera.eulerAngles = targetRotation;
+        }
     }
 
     public void ReceiveInput(Vector2 mouseInput)

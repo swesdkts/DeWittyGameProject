@@ -47,7 +47,7 @@ public class LevelLoaderController : MonoBehaviour
 
     private void TryExitGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(ExitGame());
         }
