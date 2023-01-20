@@ -19,38 +19,45 @@ public class LevelLoaderController : MonoBehaviour
         TryExitGame();
     }
 
+    void TryRestartScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(LoadSceneCoroutine("SampleScene"));
+        }
+    }
+
+    void TryExitGame()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ExitGameCoroutine());
+        }
+    }
+
     /* An IEnumerator for loading scenes with the crossfade animation. 
     When starting the coroutine, put the name of the scene you want to transition to as a string inside the parentheses.
 
     Example: StartCoroutine(LoadScene("SampleScene")); */
-    public IEnumerator LoadScene(string nextScene)
+    public IEnumerator LoadSceneCoroutine(string nextScene)
     {
         animator.SetTrigger("FadeToBlack");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextScene.ToString());
     }
 
-    public IEnumerator ExitGame()
+    public IEnumerator ExitGameCoroutine()
     {
         animator.SetTrigger("FadeToBlack");
         yield return new WaitForSeconds(1);
         Application.Quit();
     }
 
-    private void TryRestartScene()
+    // A function for quitting the application. This is needed in order for the menu's exit button to work.
+    public void ExitGame()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(LoadScene("SampleScene"));
-        }
-    }
-
-    private void TryExitGame()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ExitGame());
-        }
+        StartCoroutine(ExitGameCoroutine());
+        print("quitting...");
     }
 
 }
