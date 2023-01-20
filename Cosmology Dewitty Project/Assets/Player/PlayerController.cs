@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.transform.position, 1, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.transform.position, 0.1f, groundMask);
 
         if (isGrounded)
         {
