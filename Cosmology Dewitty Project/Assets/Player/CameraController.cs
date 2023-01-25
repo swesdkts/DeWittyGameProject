@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    #region Sensitivity Data
     public float sensitivity = 1;
-    float sensitivityX = 4.5f;
-    float sensitivityY = 0.005625f;
+    float originalXSensitivity = 4.5f;
+    float originalYSensitivity = 0.005625f;
+    float sensitivityX;
+    float sensitivityY;
     float mouseX, mouseY;
+    #endregion
 
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
@@ -17,8 +21,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        sensitivityX = sensitivityX * sensitivity;
-        sensitivityY = sensitivityY * sensitivity;
+        updateCameraSensitivity();
     }
 
     void Update()
@@ -33,6 +36,12 @@ public class CameraController : MonoBehaviour
         targetRotation.x = xRotation;
         playerCamera.eulerAngles = targetRotation;
         }
+    }
+
+    public void updateCameraSensitivity()
+    {
+        sensitivityX = originalXSensitivity * sensitivity;
+        sensitivityY = originalYSensitivity * sensitivity;
     }
 
     public void ReceiveInput(Vector2 mouseInput)

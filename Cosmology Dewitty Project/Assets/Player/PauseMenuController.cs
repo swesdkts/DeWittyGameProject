@@ -4,18 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SphereCollider))]
 public class PauseMenuController : MonoBehaviour
 {
     public bool needMouseAccess;
 
-    #region Object Information Overlay
+    #region Overlay Information
     public Canvas pauseMenu;
     public Slider slider;
+    public TextMeshProUGUI sensitivityText;
 
     public bool pauseMenuDeployed = false;
 
-    public GameObject player;
+    GameObject player;
     #endregion
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class PauseMenuController : MonoBehaviour
     {
         if (pauseMenu != null)
         {
-            HideObjectInfoOverlay();
+            HideOverlay();
         }
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -40,24 +40,24 @@ public class PauseMenuController : MonoBehaviour
 
     private void TryInteract()
     {
-        #region Show Object Info Overlay if it Exists
+        #region Show Overlay if it Exists
         if (pauseMenu)
         {
             if (pauseMenuDeployed)
             {
-                HideObjectInfoOverlay();
+                HideOverlay();
                 return;
             }
 
             if (!pauseMenuDeployed)
             {
-                DeployObjectInfoOverlay();
+                DeployOverlay();
             }
         }
         #endregion
     }
 
-    public void DeployObjectInfoOverlay()
+    public void DeployOverlay()
     {
         pauseMenu.enabled = true;
 
@@ -71,7 +71,7 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    public void HideObjectInfoOverlay()
+    public void HideOverlay()
     {
         pauseMenu.enabled = false;
 
@@ -88,6 +88,7 @@ public class PauseMenuController : MonoBehaviour
     public void updateSensitivity(float value)
     {
         gameObject.GetComponent<CameraController>().sensitivity = slider.value;
-        print(slider.value);
+        gameObject.GetComponent<CameraController>().updateCameraSensitivity();
+        sensitivityText.text = slider.value.ToString();
     }
 }

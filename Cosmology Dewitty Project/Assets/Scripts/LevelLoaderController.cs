@@ -16,7 +16,6 @@ public class LevelLoaderController : MonoBehaviour
     void Update()
     {
         TryRestartScene();
-        TryExitGame();
     }
 
     void TryRestartScene()
@@ -24,14 +23,6 @@ public class LevelLoaderController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(LoadSceneCoroutine("SampleScene"));
-        }
-    }
-
-    void TryExitGame()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ExitGameCoroutine());
         }
     }
 
@@ -57,7 +48,6 @@ public class LevelLoaderController : MonoBehaviour
     public void ExitGame()
     {
         StartCoroutine(ExitGameCoroutine());
-        print("quitting...");
     }
 
 }
