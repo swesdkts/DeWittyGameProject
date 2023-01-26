@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     #region Sensitivity Data
-    public float sensitivity = 1;
+    [Range(1,30)]
+    public float sensitivity = 15;
     float originalXSensitivity = 4.5f;
     float originalYSensitivity = 0.005625f;
     float sensitivityX;
@@ -28,13 +29,13 @@ public class CameraController : MonoBehaviour
     {
         if (allowRotate)
         {
-        transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
+            transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
-        Vector3 targetRotation = transform.eulerAngles;
-        targetRotation.x = xRotation;
-        playerCamera.eulerAngles = targetRotation;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
+            Vector3 targetRotation = transform.eulerAngles;
+            targetRotation.x = xRotation;
+            playerCamera.eulerAngles = targetRotation;
         }
     }
 

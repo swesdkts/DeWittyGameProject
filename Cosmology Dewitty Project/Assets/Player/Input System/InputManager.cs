@@ -25,6 +25,8 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        // Vector2 targetMouseDelta = groundMovement.NewMouse.ReadValue<Vector2>() * Time.smoothDeltaTime;
+
         movement.ReceiveInput(horizontalInput);
 
         cameraController.ReceiveInput(mouseInput);

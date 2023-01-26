@@ -19,14 +19,14 @@ public class LevelLoaderController : MonoBehaviour
     public IEnumerator LoadSceneCoroutine(string nextScene)
     {
         animator.SetTrigger("FadeToBlack");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadScene(nextScene.ToString());
     }
 
     public IEnumerator ExitGameCoroutine()
     {
         animator.SetTrigger("FadeToBlack");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         Application.Quit();
     }
 

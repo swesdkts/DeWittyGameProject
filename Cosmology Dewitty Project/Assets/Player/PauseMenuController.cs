@@ -45,6 +45,7 @@ public class PauseMenuController : MonoBehaviour
         {
             if (pauseMenuDeployed)
             {
+                Time.timeScale = 1;
                 HideOverlay();
                 return;
             }
@@ -52,6 +53,7 @@ public class PauseMenuController : MonoBehaviour
             if (!pauseMenuDeployed)
             {
                 DeployOverlay();
+                Time.timeScale = 0;
             }
         }
         #endregion
@@ -66,8 +68,8 @@ public class PauseMenuController : MonoBehaviour
         if (needMouseAccess == true)
         {
             gameObject.GetComponent<CameraController>().allowRotate = false;
-            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -79,9 +81,9 @@ public class PauseMenuController : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            gameObject.GetComponent<CameraController>().allowRotate = true;
-            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            gameObject.GetComponent<CameraController>().allowRotate = true;
         }
     }
 
