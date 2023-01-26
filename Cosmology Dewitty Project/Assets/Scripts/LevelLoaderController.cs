@@ -12,20 +12,6 @@ public class LevelLoaderController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        TryRestartScene();
-    }
-
-    void TryRestartScene()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(LoadSceneCoroutine("SampleScene"));
-        }
-    }
-
     /* An IEnumerator for loading scenes with the crossfade animation. 
     When starting the coroutine, put the name of the scene you want to transition to as a string inside the parentheses.
 
@@ -48,6 +34,11 @@ public class LevelLoaderController : MonoBehaviour
     public void ExitGame()
     {
         StartCoroutine(ExitGameCoroutine());
+    }
+
+    public void ResetScene()
+    {
+        StartCoroutine(LoadSceneCoroutine("SampleScene"));
     }
 
 }
