@@ -16,6 +16,7 @@ public class PauseMenuController : MonoBehaviour
     public bool pauseMenuDeployed = false;
 
     GameObject player;
+    public GameObject playerCamera;
     #endregion
 
     // Start is called before the first frame update
@@ -67,7 +68,7 @@ public class PauseMenuController : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            gameObject.GetComponent<CameraController>().allowRotate = false;
+            playerCamera.GetComponent<CameraController>().allowRotate = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -83,14 +84,13 @@ public class PauseMenuController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            gameObject.GetComponent<CameraController>().allowRotate = true;
+            playerCamera.GetComponent<CameraController>().allowRotate = true;
         }
     }
 
     public void updateSensitivity(float value)
     {
-        gameObject.GetComponent<CameraController>().sensitivity = slider.value;
-        gameObject.GetComponent<CameraController>().updateCameraSensitivity();
+        playerCamera.GetComponent<CameraController>().mouseSensitivity = slider.value;
         sensitivityText.text = slider.value.ToString();
     }
 }

@@ -17,7 +17,8 @@ public class ObjectInteract : MonoBehaviour
 
     #region Player and Mouse
     public bool needMouseAccess;
-    public GameObject player;
+    GameObject player;
+    public GameObject playerCamera;
     #endregion
 
     #region Object Information Overlay
@@ -129,7 +130,7 @@ public class ObjectInteract : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            player.GetComponent<CameraController>().allowRotate = false;
+            playerCamera.GetComponent<CameraController>().allowRotate = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
@@ -148,7 +149,7 @@ public class ObjectInteract : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            player.GetComponent<CameraController>().allowRotate = true;
+            playerCamera.GetComponent<CameraController>().allowRotate = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
