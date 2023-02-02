@@ -33,11 +33,13 @@ public class LevelLoaderController : MonoBehaviour
     // A function for quitting the application. This is needed in order for the menu's exit button to work.
     public void ExitGame()
     {
+        Time.timeScale = 1;
         StartCoroutine(ExitGameCoroutine());
     }
 
     public void ResetScene()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadSceneCoroutine("SampleScene"));
     }
 

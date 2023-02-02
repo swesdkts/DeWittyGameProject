@@ -22,12 +22,15 @@ public class PauseMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (pauseMenu != null)
         {
             HideOverlay();
         }
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        slider.value = playerCamera.GetComponent<CameraController>().mouseSensitivity;
+        sensitivityText.text = slider.value.ToString();
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class PauseMenuController : MonoBehaviour
         {
             TryInteract();
         }
+
+        slider.value = Mathf.Round(slider.value * 10)/10;
     }
 
     private void TryInteract()
@@ -54,7 +59,7 @@ public class PauseMenuController : MonoBehaviour
             if (!pauseMenuDeployed)
             {
                 DeployOverlay();
-                Time.timeScale = 0;
+                //Time.timeScale = 0.1f;
             }
         }
         #endregion
