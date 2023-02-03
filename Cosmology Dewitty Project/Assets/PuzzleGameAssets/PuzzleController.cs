@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PuzzleController : MonoBehaviour
 {
-    public Image puzzleImage;
+    public GameObject rewardObjects;
+    public GameObject puzzleObjects;
 
     public GameObject pictureBlankFrame;
     public GameObject pictureFilled;
@@ -16,17 +17,18 @@ public class PuzzleController : MonoBehaviour
     public void Start()
     {
         pictureBlankFrame.SetActive(true);
+        puzzleObjects.SetActive(true);
         pictureFilled.SetActive(false);
-        puzzleImage.enabled = false;
+        rewardObjects.SetActive(false);
     }
 
     void Update()
     {
         if (placedCount == totalPieces)
         {
-            pictureBlankFrame.SetActive(false);
             pictureFilled.SetActive(true);
-            puzzleImage.enabled = true;
+            rewardObjects.SetActive(true);
+            puzzleObjects.SetActive(false);
         }
     }
 

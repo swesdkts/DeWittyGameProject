@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SphereCollider))]
 public class ObjectInteract : MonoBehaviour
 {
     #region Press To Interact Overlay Canvas
