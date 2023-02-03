@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (allowRotate)
         {
@@ -48,6 +48,8 @@ public class CameraController : MonoBehaviour
         playerBody.Rotate(Vector3.up * horizontalMouse);
     }
 
+
+    #region On Enable/Disable
     void OnEnable()
     {
         controls.Enable();
@@ -57,4 +59,5 @@ public class CameraController : MonoBehaviour
     {
         controls.Disable();
     }
+    #endregion
 }

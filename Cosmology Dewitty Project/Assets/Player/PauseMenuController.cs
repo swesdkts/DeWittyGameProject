@@ -59,7 +59,7 @@ public class PauseMenuController : MonoBehaviour
             if (!pauseMenuDeployed)
             {
                 DeployOverlay();
-                //Time.timeScale = 0.1f;
+                Time.timeScale = 0;
             }
         }
         #endregion
