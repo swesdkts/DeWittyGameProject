@@ -545,7 +545,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 4.5
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -18124,7 +18124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cf5612e369aca4493f1d3605358ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 4.5
+  mouseSensitivity: 3
   allowRotate: 1
 --- !u!4 &2124478287 stripped
 Transform:
