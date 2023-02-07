@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector2 move;
 
+    public bool allowMove = true;
     float moveSpeed = 7;
     #endregion
 
@@ -35,7 +36,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Gravity();
-        playerMovement();
+
+        if (allowMove)
+        {
+            playerMovement();
+        }
     }
 
     #region Gravity and Movement
