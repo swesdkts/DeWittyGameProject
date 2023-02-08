@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SphereCollider))]
 public class ObjectInteract : MonoBehaviour
 {
     #region Press To Interact Overlay Canvas
@@ -16,8 +15,8 @@ public class ObjectInteract : MonoBehaviour
     public bool playerInRange = false;
 
     #region Player and Mouse
-    public bool needMouseAccess;
-    GameObject player;
+    public bool needPlayerAccess;
+    public GameObject player;
     public GameObject playerCamera;
     #endregion
 
@@ -45,14 +44,12 @@ public class ObjectInteract : MonoBehaviour
             HideObjectInfoOverlay();
         }
         HidePressToInteractOverlay();
-
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetKeyDown(KeyCode.Escape) && objectInfoOverlayDeployed))
         {
             TryInteract();
         }
@@ -69,7 +66,7 @@ public class ObjectInteract : MonoBehaviour
                 return;
             }
 
-            if (playerInRange && !objectInfoOverlayDeployed)
+            if ((playerInRange && !objectInfoOverlayDeployed))
             {
                 DeployObjectInfoOverlay();
             }
@@ -128,11 +125,18 @@ public class ObjectInteract : MonoBehaviour
 
         objectInfoOverlayDeployed = true;
 
-        if (needMouseAccess == true)
+        if (needPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = false;
+            player.GetComponent<PlayerController>().allowMove = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+        /* If needPlayerAccess is false, this game object assures the developer that it doesn't have access.
+           I put this here because my monkey brain keeps forgetting to check the box and wonder why tf it doesn't work. */
+        else
+        {
+            print(this.gameObject.name + " does not require access to the player. (message 1/2)");
         }
     }
 
@@ -147,11 +151,16 @@ public class ObjectInteract : MonoBehaviour
             DeployPressToInteractOverlay();
         }
 
-        if (needMouseAccess == true)
+        if (needPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = true;
+            player.GetComponent<PlayerController>().allowMove = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            print(this.gameObject.name + " does not require access to the player. (message 2/2)");
         }
     }
 

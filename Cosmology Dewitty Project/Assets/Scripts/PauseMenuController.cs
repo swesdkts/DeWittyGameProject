@@ -17,6 +17,8 @@ public class PauseMenuController : MonoBehaviour
 
     GameObject player;
     public GameObject playerCamera;
+    [SerializeField]
+    ObjectInteract objectInteractScript;
     #endregion
 
     // Start is called before the first frame update
@@ -36,7 +38,7 @@ public class PauseMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if ((player.GetComponent<PlayerController>().allowMove) && (Input.GetKeyDown(KeyCode.Escape)))
         {
             TryInteract();
         }
@@ -59,7 +61,7 @@ public class PauseMenuController : MonoBehaviour
             if (!pauseMenuDeployed)
             {
                 DeployOverlay();
-                //Time.timeScale = 0.1f;
+                Time.timeScale = 0;
             }
         }
         #endregion

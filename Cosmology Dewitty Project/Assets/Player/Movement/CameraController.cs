@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     #region Camera Rotation Information
     Vector2 mouseLook;
     Transform playerBody;
-    public float mouseSensitivity = 4.5f;
+    public float mouseSensitivity; //4.5
     float xRotation = 0f;
 
     public bool allowRotate = true;
@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (allowRotate)
         {
@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour
     {
         mouseLook = controls.Player.Look.ReadValue<Vector2>();
 
-        float horizontalMouse = mouseLook.x * mouseSensitivity * Time.deltaTime;
-        float verticalMouse = mouseLook.y * mouseSensitivity * Time.deltaTime;
+        float horizontalMouse = mouseLook.x * mouseSensitivity * Time.fixedDeltaTime;
+        float verticalMouse = mouseLook.y * mouseSensitivity * Time.fixedDeltaTime;
 
         xRotation -= verticalMouse;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
@@ -48,6 +48,8 @@ public class CameraController : MonoBehaviour
         playerBody.Rotate(Vector3.up * horizontalMouse);
     }
 
+
+    #region On Enable/Disable
     void OnEnable()
     {
         controls.Enable();
@@ -57,4 +59,5 @@ public class CameraController : MonoBehaviour
     {
         controls.Disable();
     }
+    #endregion
 }
