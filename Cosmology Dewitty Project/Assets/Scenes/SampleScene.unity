@@ -7506,6 +7506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 2.5
   sceneToLoadIndex: 1
+  switchScene: 1
 --- !u!65 &1263873925
 BoxCollider:
   m_ObjectHideFlags: 0

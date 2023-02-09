@@ -13,7 +13,7 @@ public class ObjectInteract : MonoBehaviour
     #endregion
 
     public bool playerInRange = false;
-    public bool switchSceneAfterInteract = false;
+    [SerializeField] public bool switchSceneAfterInteract = false;
     SwitchScene switchScene;
 
     #region Player and Mouse
@@ -42,6 +42,7 @@ public class ObjectInteract : MonoBehaviour
     void Start()
     {
         switchScene = GetComponent<SwitchScene>();
+        
         if (objectInfoOverlayCanvas != null)
         {
             HideObjectInfoOverlay();
@@ -55,9 +56,9 @@ public class ObjectInteract : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetKeyDown(KeyCode.Escape) && objectInfoOverlayDeployed))
         {
             TryInteract();
-            if(switchSceneAfterInteract == true)
+            if(switchSceneAfterInteract)
             {
-                StartCoroutine(switchScene.LoadScene());
+                switchScene.SwitchScenes();
             }
         }
     }
