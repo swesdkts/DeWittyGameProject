@@ -55,7 +55,7 @@ public class ObjectInteract : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetKeyDown(KeyCode.Escape) && objectInfoOverlayDeployed))
         {
             TryInteract();
-            if(switchSceneAfterInteract)
+            if(switchSceneAfterInteract && playerInRange)
             {
                 switchSceneCS.TeleportTo();
             }
