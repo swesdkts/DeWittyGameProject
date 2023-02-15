@@ -8,9 +8,8 @@ public class SwitchScene : MonoBehaviour
     [SerializeField] float waitTime = 2.5f;
     [SerializeField] int sceneToLoadIndex;
 
-    [SerializeField] bool switchScene = false;
-
     ObjectInteract objInteract;
+    [SerializeField] bool canTeleport;
 
     private void Awake()
     {
@@ -19,7 +18,7 @@ public class SwitchScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,15 +30,16 @@ public class SwitchScene : MonoBehaviour
     public IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(sceneToLoadIndex);
     }
 
-    public void SwitchScenes()
+    public void TeleportTo()
     {
-        StartCoroutine(WaitTime());
-        if (switchScene)
+        if (objInteract.switchSceneAfterInteract && canTeleport)
         {
-            SceneManager.LoadScene(sceneToLoadIndex);
+            StartCoroutine(WaitTime());
         }
     }
 
 }
+

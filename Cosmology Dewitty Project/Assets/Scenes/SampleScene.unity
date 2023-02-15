@@ -7492,7 +7492,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1635453484441948103, guid: 1f42d7dd7a5f244458773233a81ebf4a, type: 3}
   m_PrefabInstance: {fileID: 1635453483643963963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1111592349
+--- !u!114 &1111592355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7505,8 +7505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 2.5
-  sceneToLoadIndex: 1
-  switchScene: 1
+  sceneToLoadIndex: 0
+  canTeleport: 1
 --- !u!65 &1263873925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12744,6 +12744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1680558294}
     m_Modifications:
+    - target: {fileID: 1635453484441947192, guid: 1f42d7dd7a5f244458773233a81ebf4a, type: 3}
+      propertyPath: teleporter
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1635453484441947192, guid: 1f42d7dd7a5f244458773233a81ebf4a, type: 3}
       propertyPath: switchSceneAfterInteract
       value: 1

@@ -14,7 +14,7 @@ public class ObjectInteract : MonoBehaviour
 
     public bool playerInRange = false;
     [SerializeField] public bool switchSceneAfterInteract = false;
-    SwitchScene switchScene;
+    SwitchScene switchSceneCS;
 
     #region Player and Mouse
     public bool needPlayerAccess;
@@ -41,8 +41,7 @@ public class ObjectInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switchScene = GetComponent<SwitchScene>();
-        
+        switchSceneCS = GetComponent<SwitchScene>();
         if (objectInfoOverlayCanvas != null)
         {
             HideObjectInfoOverlay();
@@ -58,7 +57,7 @@ public class ObjectInteract : MonoBehaviour
             TryInteract();
             if(switchSceneAfterInteract)
             {
-                switchScene.SwitchScenes();
+                switchSceneCS.TeleportTo();
             }
         }
     }
