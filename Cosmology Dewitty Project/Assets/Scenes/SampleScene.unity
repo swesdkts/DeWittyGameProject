@@ -1674,6 +1674,7 @@ MonoBehaviour:
   waitTime: 2.5
   sceneToLoadIndex: 0
   canTeleport: 0
+  teleportParticles: {fileID: 0}
 --- !u!1001 &465822357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6762,7 +6763,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25696
+  m_Name: pb_Mesh25694
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7357,15 +7358,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 2.5
-  sceneToLoadIndex: 0
+  sceneToLoadIndex: 1
   canTeleport: 1
+  teleportParticles: {fileID: 2119166187}
 --- !u!43 &1111927530
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25454
+  m_Name: pb_Mesh25452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7727,7 +7729,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25766
+  m_Name: pb_Mesh25768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9295,7 +9297,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25850
+  m_Name: pb_Mesh25852
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -11183,6 +11185,11 @@ GameObject:
 --- !u!20 &2094494235 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3984554228422111699, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
+  m_PrefabInstance: {fileID: 3984554229031633864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2119166187 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2119166187, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
   m_PrefabInstance: {fileID: 3984554229031633864}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2124478287 stripped
@@ -13259,6 +13266,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2119166187, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3984554228949813521, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
       propertyPath: slider
       value: 
@@ -13281,7 +13292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984554228949813532, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -81.54178
+      value: -83.61
       objectReference: {fileID: 0}
     - target: {fileID: 3984554228949813532, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
       propertyPath: m_LocalPosition.y
