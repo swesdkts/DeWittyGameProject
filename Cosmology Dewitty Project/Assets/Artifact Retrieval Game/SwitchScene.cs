@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SwitchScene : MonoBehaviour
 {
     [SerializeField] float waitTime = 2.5f;
@@ -10,6 +11,8 @@ public class SwitchScene : MonoBehaviour
 
     ObjectInteract objInteract;
     [SerializeField] bool canTeleport;
+
+    [SerializeField] ParticleSystem teleportParticles;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class SwitchScene : MonoBehaviour
 
     public IEnumerator WaitTime()
     {
+        teleportParticles.Play();
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(sceneToLoadIndex);
     }
