@@ -21,15 +21,5 @@ public class PlayerController_SixtyEightFeet : MonoBehaviour
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         rb.transform.position = new Vector2((transform.position.x + (moveInput.normalized.x * speed * Time.deltaTime)), (transform.position.y + (moveInput.normalized.y * speed * Time.deltaTime)));
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 }
