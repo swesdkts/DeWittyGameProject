@@ -9,6 +9,7 @@ public class PlayerController_SixtyEightFeet : MonoBehaviour
     Vector2 moveInput;
 
     public float speed;
+    public bool allowMove = true;
 
     void Awake()
     {
@@ -18,8 +19,10 @@ public class PlayerController_SixtyEightFeet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        rb.transform.position = new Vector2((transform.position.x + (moveInput.normalized.x * speed * Time.deltaTime)), (transform.position.y + (moveInput.normalized.y * speed * Time.deltaTime)));
+        if (allowMove)
+        {
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            rb.transform.position = new Vector2((transform.position.x + (moveInput.normalized.x * speed * Time.deltaTime)), (transform.position.y + (moveInput.normalized.y * speed * Time.deltaTime)));
+        }
     }
 }

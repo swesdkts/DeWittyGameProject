@@ -4,19 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController_SixtyEightFeet : MonoBehaviour
 {
     public bool needMouseAccess;
 
     #region Overlay Information
     public Canvas pauseMenu;
-    public Slider slider;
-    public TextMeshProUGUI sensitivityText;
+    GameObject player;
 
     public bool pauseMenuDeployed = false;
-
-    GameObject player;
-    public GameObject playerCamera;
     #endregion
 
     // Start is called before the first frame update
@@ -28,20 +24,15 @@ public class PauseMenuController : MonoBehaviour
         {
             HideOverlay();
         }
-
-        slider.value = playerCamera.GetComponent<CameraController>().mouseSensitivity;
-        sensitivityText.text = slider.value.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((player.GetComponent<PlayerController>().allowMove) && (Input.GetKeyDown(KeyCode.Escape)))
+        if ((player.GetComponent<PlayerController_SixtyEightFeet>().allowMove) && (Input.GetKeyDown(KeyCode.Escape)))
         {
             TryInteract();
         }
-
-        slider.value = Mathf.Round(slider.value * 10)/10;
     }
 
     private void TryInteract()
@@ -73,7 +64,6 @@ public class PauseMenuController : MonoBehaviour
 
         if (needMouseAccess == true)
         {
-            playerCamera.GetComponent<CameraController>().allowRotate = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -89,13 +79,6 @@ public class PauseMenuController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            playerCamera.GetComponent<CameraController>().allowRotate = true;
         }
-    }
-
-    public void updateSensitivity(float value)
-    {
-        playerCamera.GetComponent<CameraController>().mouseSensitivity = slider.value;
-        sensitivityText.text = slider.value.ToString();
     }
 }

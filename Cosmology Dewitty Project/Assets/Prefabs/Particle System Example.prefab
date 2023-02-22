@@ -4827,6 +4827,7 @@ GameObject:
   - component: {fileID: 1635453484441948102}
   - component: {fileID: 1635453484441947193}
   - component: {fileID: 1635453484441947192}
+  - component: {fileID: 1111592355}
   m_Layer: 3
   m_Name: Particle System Example
   m_TagString: Untagged
@@ -4841,7 +4842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635453484441948103}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.537815, y: 1.2972227, z: 42.020706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4941,9 +4942,26 @@ MonoBehaviour:
   pressToInteractOverlayCanvas: {fileID: 0}
   pressToInteractOverlayDeployed: 0
   playerInRange: 0
+  switchSceneAfterInteract: 1
   needPlayerAccess: 0
   player: {fileID: 0}
   playerCamera: {fileID: 0}
   objectInfoOverlayCanvas: {fileID: 0}
   objectInfoOverlayDeployed: 0
   particleSystemToTrigger: {fileID: 1635453483883015622}
+--- !u!114 &1111592355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635453484441948103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ce8185ac5fa04aa40baf9bd08bbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2.5
+  sceneToLoadIndex: 1
+  canTeleport: 1
+  teleportParticles: {fileID: 0}
