@@ -15,12 +15,12 @@ public class LevelLoaderController : MonoBehaviour
     /* An IEnumerator for loading scenes with the crossfade animation. 
     When starting the coroutine, put the name of the scene you want to transition to as a string inside the parentheses.
 
-    Example: StartCoroutine(LoadScene("SampleScene")); */
-    public IEnumerator LoadSceneCoroutine(string nextScene)
+    Example: StartCoroutine(LoadSceneCoroutine("SampleScene")); */
+    public IEnumerator LoadSceneCoroutine(int nextScene)
     {
         animator.SetTrigger("FadeToBlack");
         yield return new WaitForSecondsRealtime(1);
-        SceneManager.LoadScene(nextScene.ToString());
+        SceneManager.LoadScene(nextScene);
     }
 
     public IEnumerator ExitGameCoroutine()
@@ -30,17 +30,22 @@ public class LevelLoaderController : MonoBehaviour
         Application.Quit();
     }
 
-    // A function for quitting the application. This is needed in order for the menu's exit button to work.
+
+    public void ResetScene()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LoadSceneCoroutine(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    public void ExitToMuseum()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LoadSceneCoroutine(0));
+    }
+
     public void ExitGame()
     {
         Time.timeScale = 1;
         StartCoroutine(ExitGameCoroutine());
     }
-
-    public void ResetScene()
-    {
-        Time.timeScale = 1;
-        StartCoroutine(LoadSceneCoroutine("SampleScene"));
-    }
-
 }

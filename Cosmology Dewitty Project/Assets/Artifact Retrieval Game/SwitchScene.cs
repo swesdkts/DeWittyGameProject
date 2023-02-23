@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    [SerializeField] float waitTime = 2.5f;
-    [SerializeField] int sceneToLoadIndex;
+    GameObject crossfade;
+    public int sceneBuildIndexToLoad;
 
     ObjectInteract objInteract;
     [SerializeField] bool canTeleport;
@@ -17,31 +17,15 @@ public class SwitchScene : MonoBehaviour
     private void Awake()
     {
         objInteract = GetComponent<ObjectInteract>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public IEnumerator WaitTime()
-    {
-        teleportParticles.Play();
-        yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene(sceneToLoadIndex);
+        crossfade = GameObject.FindGameObjectWithTag("Crossfade");
     }
 
     public void TeleportTo()
     {
         if (objInteract.switchSceneAfterInteract && canTeleport)
         {
-            StartCoroutine(WaitTime());
+            teleportParticles.Play();
+            crossfade.GetComponent<LevelLoaderController>().LoadSceneCoroutine(sceneBuildIndexToLoad);
         }
     }
 

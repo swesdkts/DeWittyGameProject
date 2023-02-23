@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - PlayerModel
+  - Dropoff Point
+  - Crossfade
   layers:
   - Default
   - TransparentFX
