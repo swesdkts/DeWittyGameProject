@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    GameObject crossfade;
+    LevelLoaderController crossfade;
     public int sceneBuildIndexToLoad;
 
     ObjectInteract objInteract;
@@ -17,7 +17,7 @@ public class SwitchScene : MonoBehaviour
     private void Awake()
     {
         objInteract = GetComponent<ObjectInteract>();
-        crossfade = GameObject.FindGameObjectWithTag("Crossfade");
+        crossfade = FindObjectOfType<LevelLoaderController>();
     }
 
     public void TeleportTo()
@@ -25,7 +25,7 @@ public class SwitchScene : MonoBehaviour
         if (objInteract.switchSceneAfterInteract && canTeleport)
         {
             teleportParticles.Play();
-            crossfade.GetComponent<LevelLoaderController>().LoadSceneCoroutine(sceneBuildIndexToLoad);
+            crossfade.LoadScene(sceneBuildIndexToLoad);
         }
     }
 

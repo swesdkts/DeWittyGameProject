@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelLoaderController : MonoBehaviour
 {
     private Animator animator;
+
+    public float waitTime = 2.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +21,15 @@ public class LevelLoaderController : MonoBehaviour
     public IEnumerator LoadSceneCoroutine(int nextScene)
     {
         animator.SetTrigger("FadeToBlack");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(waitTime);
         SceneManager.LoadScene(nextScene);
     }
+
+    public void LoadScene(int nextScene)
+    {
+        StartCoroutine(LoadSceneCoroutine(nextScene));
+    }
+
 
     public IEnumerator ExitGameCoroutine()
     {
