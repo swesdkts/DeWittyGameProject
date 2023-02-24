@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoaderController : MonoBehaviour
+public class CrossfadeController : MonoBehaviour
 {
     private Animator animator;
 
-    public float waitTime = 2.5f;
+    [Tooltip("The usual value is 1.5")]
+    public float waitTime;
     // Start is called before the first frame update
     void Start()
     {
