@@ -13,7 +13,7 @@ public class ObjectInteract : MonoBehaviour
     #endregion
 
     [HideInInspector] public bool playerInRange = false;
-    public ParticleSystem particleSystemToTrigger;
+    [Space(5)] public ParticleSystem particleSystemToTrigger;
     [SerializeField] public bool switchSceneAfterInteract = false;
     SwitchScene switchSceneCS;
 
@@ -28,7 +28,7 @@ public class ObjectInteract : MonoBehaviour
     [Header("Object Info Overlay (If Needed)")]
     public Canvas objectInfoOverlayCanvas;
 
-    public bool objectInfoOverlayDeployed = false;
+    [HideInInspector] public bool objectInfoOverlayDeployed = false;
     #endregion
 
     // Start is called before the first frame update
@@ -132,12 +132,6 @@ public class ObjectInteract : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        /* If needPlayerAccess is false, this game object assures the developer that it doesn't have access.
-           I put this here because my monkey brain keeps forgetting to check the box and wonder why tf it doesn't work. */
-        else
-        {
-            print(this.gameObject.name + " does not require access to the player. (message 1/2)");
-        }
     }
 
     public void HideObjectInfoOverlay()
@@ -157,10 +151,6 @@ public class ObjectInteract : MonoBehaviour
             player.GetComponent<PlayerController>().allowMove = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            print(this.gameObject.name + " does not require access to the player. (message 2/2)");
         }
     }
 
