@@ -5145,13 +5145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5cf64c861b3b54f8b9c2df74e6efd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 3984554228422111696}
   needMouseAccess: 1
   pauseMenu: {fileID: 0}
   slider: {fileID: 0}
   sensitivityText: {fileID: 0}
   pauseMenuDeployed: 0
-  playerCamera: {fileID: 3984554228422111696}
-  objectInteractScript: {fileID: 0}
 --- !u!135 &3984554228949813522
 SphereCollider:
   m_ObjectHideFlags: 0

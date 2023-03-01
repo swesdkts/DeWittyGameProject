@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
+    [Header("Player Access")]
+    public GameObject playerCamera;
+    GameObject player;
     public bool needMouseAccess;
 
     #region Overlay Information
+    [Header("Pause Menu UI")]
     public Canvas pauseMenu;
     public Slider slider;
     public TextMeshProUGUI sensitivityText;
-
-    public bool pauseMenuDeployed = false;
-
-    GameObject player;
-    public GameObject playerCamera;
+    [HideInInspector] public bool pauseMenuDeployed = false;
     #endregion
 
     // Start is called before the first frame update

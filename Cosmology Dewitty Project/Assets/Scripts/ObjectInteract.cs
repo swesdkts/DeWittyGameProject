@@ -7,35 +7,28 @@ using UnityEngine.UI;
 public class ObjectInteract : MonoBehaviour
 {
     #region Press To Interact Overlay Canvas
+    [Header("Interaction")]
     [SerializeField] Canvas pressToInteractOverlayCanvas;
-
-    public bool pressToInteractOverlayDeployed = false;
+    [HideInInspector] public bool pressToInteractOverlayDeployed = false;
     #endregion
 
-    public bool playerInRange = false;
+    [HideInInspector] public bool playerInRange = false;
+    public ParticleSystem particleSystemToTrigger;
     [SerializeField] public bool switchSceneAfterInteract = false;
     SwitchScene switchSceneCS;
 
     #region Player and Mouse
-    public bool needPlayerAccess;
+    [Header("Player Access (If Needed)")]
+    public bool needsPlayerAccess;
     public GameObject player;
     public GameObject playerCamera;
     #endregion
 
     #region Object Information Overlay
+    [Header("Object Info Overlay (If Needed)")]
     public Canvas objectInfoOverlayCanvas;
 
     public bool objectInfoOverlayDeployed = false;
-    #endregion
-
-    #region Particle System To Be Triggered (If it exists)
-    
-    public ParticleSystem particleSystemToTrigger;
-
-    public void PlayParticles()
-    {
-        particleSystemToTrigger.Play();
-    }
     #endregion
 
     // Start is called before the first frame update
@@ -132,7 +125,7 @@ public class ObjectInteract : MonoBehaviour
 
         objectInfoOverlayDeployed = true;
 
-        if (needPlayerAccess == true)
+        if (needsPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = false;
             player.GetComponent<PlayerController>().allowMove = false;
@@ -158,7 +151,7 @@ public class ObjectInteract : MonoBehaviour
             DeployPressToInteractOverlay();
         }
 
-        if (needPlayerAccess == true)
+        if (needsPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = true;
             player.GetComponent<PlayerController>().allowMove = true;
@@ -171,4 +164,8 @@ public class ObjectInteract : MonoBehaviour
         }
     }
 
+    public void PlayParticles()
+    {
+        particleSystemToTrigger.Play();
+    }
 }

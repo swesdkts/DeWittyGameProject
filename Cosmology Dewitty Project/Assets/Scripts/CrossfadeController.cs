@@ -7,8 +7,8 @@ public class CrossfadeController : MonoBehaviour
 {
     private Animator animator;
 
-    [Tooltip("The usual value is 1.5")]
-    public float waitTime;
+    public float waitTime; // Default is 1.5f
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class CrossfadeController : MonoBehaviour
     /* An IEnumerator for loading scenes with the crossfade animation. 
     When starting the coroutine, put the name of the scene you want to transition to as a string inside the parentheses.
 
-    Example: StartCoroutine(LoadSceneCoroutine("SampleScene")); */
+    Example: StartCoroutine(LoadSceneCoroutine(SceneBuildIndex)); */
     public IEnumerator LoadSceneCoroutine(int nextScene)
     {
         animator.SetTrigger("FadeToBlack");
