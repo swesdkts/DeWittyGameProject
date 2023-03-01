@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     #region Gravity
     Vector3 velocity;
     
+    [Header("Physics")]
     public float gravity;
     #endregion
 
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector2 move;
 
-    public bool allowMove = true;
+    [HideInInspector] public bool allowMove = true;
     float moveSpeed = 7;
     #endregion
 

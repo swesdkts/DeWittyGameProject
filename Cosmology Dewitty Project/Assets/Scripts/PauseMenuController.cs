@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public bool needMouseAccess;
+    #region Player
+    public GameObject playerCamera;
+    GameObject player;
+    #endregion
 
     #region Overlay Information
+    [Header("Pause Menu UI")]
     public Canvas pauseMenu;
     public Slider slider;
     public TextMeshProUGUI sensitivityText;
-
-    public bool pauseMenuDeployed = false;
-
-    GameObject player;
-    public GameObject playerCamera;
+    [HideInInspector] public bool pauseMenuDeployed = false;
     #endregion
 
     // Start is called before the first frame update
@@ -71,12 +71,9 @@ public class PauseMenuController : MonoBehaviour
 
         pauseMenuDeployed = true;
 
-        if (needMouseAccess == true)
-        {
-            playerCamera.GetComponent<CameraController>().allowRotate = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        playerCamera.GetComponent<CameraController>().allowRotate = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void HideOverlay()
@@ -85,12 +82,9 @@ public class PauseMenuController : MonoBehaviour
 
         pauseMenuDeployed = false;
 
-        if (needMouseAccess == true)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            playerCamera.GetComponent<CameraController>().allowRotate = true;
-        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        playerCamera.GetComponent<CameraController>().allowRotate = true;
     }
 
     public void updateSensitivity(float value)

@@ -1550,7 +1550,6 @@ GameObject:
   - component: {fileID: 462609255}
   - component: {fileID: 462609254}
   - component: {fileID: 462609252}
-  - component: {fileID: 462609258}
   m_Layer: 0
   m_Name: Picture Placeholder
   m_TagString: Untagged
@@ -1573,13 +1572,13 @@ MonoBehaviour:
   pressToInteractOverlayCanvas: {fileID: 1779511347}
   pressToInteractOverlayDeployed: 0
   playerInRange: 0
+  particleSystemToTrigger: {fileID: 0}
   switchSceneAfterInteract: 0
-  needPlayerAccess: 1
+  needsPlayerAccess: 1
   player: {fileID: 493062866}
   playerCamera: {fileID: 2094494232}
   objectInfoOverlayCanvas: {fileID: 619593247}
   objectInfoOverlayDeployed: 0
-  particleSystemToTrigger: {fileID: 0}
 --- !u!65 &462609254
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1659,21 +1658,6 @@ Transform:
   m_Father: {fileID: 1680558294}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &462609258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462609251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9ce8185ac5fa04aa40baf9bd08bbee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneBuildIndexToLoad: 0
-  canTeleport: 0
-  teleportParticles: {fileID: 0}
 --- !u!1001 &465822357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4278,13 +4262,13 @@ MonoBehaviour:
   pressToInteractOverlayCanvas: {fileID: 1779511347}
   pressToInteractOverlayDeployed: 0
   playerInRange: 0
+  particleSystemToTrigger: {fileID: 0}
   switchSceneAfterInteract: 0
-  needPlayerAccess: 1
+  needsPlayerAccess: 0
   player: {fileID: 493062866}
   playerCamera: {fileID: 2094494232}
   objectInfoOverlayCanvas: {fileID: 606939567}
   objectInfoOverlayDeployed: 0
-  particleSystemToTrigger: {fileID: 0}
 --- !u!65 &1004783211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12916,7 +12900,7 @@ PrefabInstance:
       objectReference: {fileID: 2119166187}
     - target: {fileID: 1111592355, guid: 1f42d7dd7a5f244458773233a81ebf4a, type: 3}
       propertyPath: sceneBuildIndexToLoad
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1635453484441947192, guid: 1f42d7dd7a5f244458773233a81ebf4a, type: 3}
       propertyPath: pressToInteractOverlayCanvas
@@ -13248,6 +13232,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 784836398}
+    - target: {fileID: 3213215079557408172, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213215079557408172, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213215079811585539, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213215079811585539, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213215079811585539, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3213215080569677315, guid: e8406bfaff6f0eb428fa087e0939f720, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

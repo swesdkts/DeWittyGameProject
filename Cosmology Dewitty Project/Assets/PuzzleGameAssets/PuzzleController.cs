@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PuzzleController : MonoBehaviour
 {
+    ObjectInteract picturePlaceholder;
+
     public GameObject rewardObjects;
     public GameObject puzzleObjects;
 
@@ -14,12 +16,14 @@ public class PuzzleController : MonoBehaviour
     public int totalPieces = 0;
     public int placedCount = 0;
 
-    public void Start()
+    void Awake()
     {
         pictureBlankFrame.SetActive(true);
         puzzleObjects.SetActive(true);
         pictureFilled.SetActive(false);
         rewardObjects.SetActive(false);
+
+        picturePlaceholder = GameObject.Find("Picture Placeholder").GetComponent<ObjectInteract>();
     }
 
     void Update()
@@ -29,6 +33,12 @@ public class PuzzleController : MonoBehaviour
             pictureFilled.SetActive(true);
             rewardObjects.SetActive(true);
             puzzleObjects.SetActive(false);
+
+            picturePlaceholder.needsPlayerAccess = false;
+            picturePlaceholder.playerCamera.GetComponent<CameraController>().allowRotate = true;
+            picturePlaceholder.player.GetComponent<PlayerController>().allowMove = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

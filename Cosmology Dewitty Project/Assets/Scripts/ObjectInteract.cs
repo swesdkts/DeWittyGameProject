@@ -7,35 +7,28 @@ using UnityEngine.UI;
 public class ObjectInteract : MonoBehaviour
 {
     #region Press To Interact Overlay Canvas
+    [Header("Interaction")]
     [SerializeField] Canvas pressToInteractOverlayCanvas;
-
-    public bool pressToInteractOverlayDeployed = false;
+    [HideInInspector] public bool pressToInteractOverlayDeployed = false;
     #endregion
 
-    public bool playerInRange = false;
+    [HideInInspector] public bool playerInRange = false;
+    [Space(5)] public ParticleSystem particleSystemToTrigger;
     [SerializeField] public bool switchSceneAfterInteract = false;
     SwitchScene switchSceneCS;
 
     #region Player and Mouse
-    public bool needPlayerAccess;
+    [Header("Player Access (If Needed)")]
+    public bool needsPlayerAccess;
     public GameObject player;
     public GameObject playerCamera;
     #endregion
 
     #region Object Information Overlay
+    [Header("Object Info Overlay (If Needed)")]
     public Canvas objectInfoOverlayCanvas;
 
-    public bool objectInfoOverlayDeployed = false;
-    #endregion
-
-    #region Particle System To Be Triggered (If it exists)
-    
-    public ParticleSystem particleSystemToTrigger;
-
-    public void PlayParticles()
-    {
-        particleSystemToTrigger.Play();
-    }
+    [HideInInspector] public bool objectInfoOverlayDeployed = false;
     #endregion
 
     // Start is called before the first frame update
@@ -132,18 +125,12 @@ public class ObjectInteract : MonoBehaviour
 
         objectInfoOverlayDeployed = true;
 
-        if (needPlayerAccess == true)
+        if (needsPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = false;
             player.GetComponent<PlayerController>().allowMove = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-        }
-        /* If needPlayerAccess is false, this game object assures the developer that it doesn't have access.
-           I put this here because my monkey brain keeps forgetting to check the box and wonder why tf it doesn't work. */
-        else
-        {
-            print(this.gameObject.name + " does not require access to the player. (message 1/2)");
         }
     }
 
@@ -158,17 +145,17 @@ public class ObjectInteract : MonoBehaviour
             DeployPressToInteractOverlay();
         }
 
-        if (needPlayerAccess == true)
+        if (needsPlayerAccess == true)
         {
             playerCamera.GetComponent<CameraController>().allowRotate = true;
             player.GetComponent<PlayerController>().allowMove = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        else
-        {
-            print(this.gameObject.name + " does not require access to the player. (message 2/2)");
-        }
     }
 
+    public void PlayParticles()
+    {
+        particleSystemToTrigger.Play();
+    }
 }

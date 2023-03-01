@@ -10,10 +10,10 @@ public class CameraController : MonoBehaviour
     #region Camera Rotation Information
     Vector2 mouseLook;
     Transform playerBody;
-    public float mouseSensitivity; //4.5
+    public float mouseSensitivity; // Default is 4
     float xRotation = 0f;
 
-    public bool allowRotate = true;
+    [HideInInspector] public bool allowRotate = true;
     #endregion
 
     void Awake()
