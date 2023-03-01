@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1038,6 +1038,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2119166187, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
   m_PrefabInstance: {fileID: 1903196121}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903196123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3984554228949813521, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
+  m_PrefabInstance: {fileID: 1903196121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488049166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5cf64c861b3b54f8b9c2df74e6efd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073721999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1914,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1903196123}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: updateSensitivity
         m_Mode: 0

@@ -13,6 +13,7 @@ public class PuzzleController : MonoBehaviour
     public GameObject pictureBlankFrame;
     public GameObject pictureFilled;
 
+    bool hasRun = false;
     public int totalPieces = 0;
     public int placedCount = 0;
 
@@ -28,7 +29,7 @@ public class PuzzleController : MonoBehaviour
 
     void Update()
     {
-        if (placedCount == totalPieces)
+        if (placedCount == totalPieces && hasRun == false)
         {
             pictureFilled.SetActive(true);
             rewardObjects.SetActive(true);
@@ -39,6 +40,9 @@ public class PuzzleController : MonoBehaviour
             picturePlaceholder.player.GetComponent<PlayerController>().allowMove = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // Allows this statement to only run once.
+            hasRun = true;
         }
     }
 

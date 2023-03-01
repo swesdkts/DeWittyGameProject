@@ -19,6 +19,11 @@ public class PauseMenuController : MonoBehaviour
     [HideInInspector] public bool pauseMenuDeployed = false;
     #endregion
 
+    void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
