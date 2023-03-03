@@ -18,8 +18,7 @@ public class ObjectInteract : MonoBehaviour
     SwitchScene switchSceneCS;
 
     #region Player and Mouse
-    [Header("Player Access (If Needed)")]
-    public bool needsPlayerAccess;
+    [Header("Player Access")]
     public GameObject player;
     public GameObject playerCamera;
     #endregion
@@ -35,6 +34,9 @@ public class ObjectInteract : MonoBehaviour
     void Start()
     {
         switchSceneCS = GetComponent<SwitchScene>();
+        player = GameObject.Find("Player");
+        playerCamera = GameObject.Find("Main Camera");
+
         if (objectInfoOverlayCanvas != null)
         {
             HideObjectInfoOverlay();
@@ -125,13 +127,10 @@ public class ObjectInteract : MonoBehaviour
 
         objectInfoOverlayDeployed = true;
 
-        if (needsPlayerAccess == true)
-        {
-            playerCamera.GetComponent<CameraController>().allowRotate = false;
-            player.GetComponent<PlayerController>().allowMove = false;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        playerCamera.GetComponent<CameraController>().allowRotate = false;
+        player.GetComponent<PlayerController>().allowMove = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void HideObjectInfoOverlay()
@@ -145,13 +144,10 @@ public class ObjectInteract : MonoBehaviour
             DeployPressToInteractOverlay();
         }
 
-        if (needsPlayerAccess == true)
-        {
-            playerCamera.GetComponent<CameraController>().allowRotate = true;
-            player.GetComponent<PlayerController>().allowMove = true;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        playerCamera.GetComponent<CameraController>().allowRotate = true;
+        player.GetComponent<PlayerController>().allowMove = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void PlayParticles()

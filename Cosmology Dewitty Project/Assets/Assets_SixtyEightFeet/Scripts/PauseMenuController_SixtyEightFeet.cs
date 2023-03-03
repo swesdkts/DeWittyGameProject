@@ -35,7 +35,7 @@ public class PauseMenuController_SixtyEightFeet : MonoBehaviour
         }
     }
 
-    private void TryInteract()
+    public void TryInteract()
     {
         #region Show Overlay if it Exists
         if (pauseMenu)

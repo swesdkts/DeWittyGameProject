@@ -49,7 +49,7 @@ public class PauseMenuController : MonoBehaviour
         slider.value = Mathf.Round(slider.value * 10)/10;
     }
 
-    private void TryInteract()
+    public void TryInteract()
     {
         #region Show Overlay if it Exists
         if (pauseMenu)
