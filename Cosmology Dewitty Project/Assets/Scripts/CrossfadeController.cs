@@ -7,7 +7,7 @@ public class CrossfadeController : MonoBehaviour
 {
     private Animator animator;
 
-    public float waitTime; // Default is 1.5f
+    public float waitTime; // Default is 1
 
     // Start is called before the first frame update
     void Start()
