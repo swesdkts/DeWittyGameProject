@@ -35,12 +35,6 @@ public class PuzzleController : MonoBehaviour
             rewardObjects.SetActive(true);
             puzzleObjects.SetActive(false);
 
-            picturePlaceholder.needsPlayerAccess = false;
-            picturePlaceholder.playerCamera.GetComponent<CameraController>().allowRotate = true;
-            picturePlaceholder.player.GetComponent<PlayerController>().allowMove = true;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
             // Allows this statement to only run once.
             hasRun = true;
         }
