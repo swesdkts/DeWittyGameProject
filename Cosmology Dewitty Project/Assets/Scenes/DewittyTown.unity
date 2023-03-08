@@ -1840,8 +1840,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4938994165053277180, guid: 15c388f5188daf845a5a10fe7aa88583, type: 3}
       propertyPath: m_Name
-      value: Pause Menu
+      value: 3D_Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 5113423980721219527, guid: 15c388f5188daf845a5a10fe7aa88583, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1903196123}
     - target: {fileID: 7502283471034655176, guid: 15c388f5188daf845a5a10fe7aa88583, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
