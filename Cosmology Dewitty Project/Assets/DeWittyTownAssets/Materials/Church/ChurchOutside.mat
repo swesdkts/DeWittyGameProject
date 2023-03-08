@@ -8,9 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ChurchOutside
-  m_Shader: {fileID: 4800000, guid: 33cb4e8ff0c1d43ac8ec40692656c7ed, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
+  - _NORMALMAP
+  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  - _SPECGLOSSMAP
+  m_InvalidKeywords:
+  - _METALLICGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4c9b9243b2529024aa36a9ba186f2b64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -38,22 +42,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 70, y: 10}
         m_Offset: {x: 0, y: 0}
     - _FirstTex:
-        m_Texture: {fileID: 2800000, guid: 1b57a0126737f474d9aca972ca79af9d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 19a49b72ad61fcf43b147e93f503d09b, type: 3}
         m_Scale: {x: 50, y: 5}
         m_Offset: {x: 0, y: 0}
     - _FourthTex:
-        m_Texture: {fileID: 2800000, guid: d4a652a9cd91c144481eb4835a89bf88, type: 3}
+        m_Texture: {fileID: 2800000, guid: e34a7779791a8ef47ae31fcea4e231b3, type: 3}
         m_Scale: {x: 50, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 19a49b72ad61fcf43b147e93f503d09b, type: 3}
+        m_Scale: {x: 70, y: 10}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2b444486606400d4eab2ff77432a06ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -65,31 +69,31 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondTex:
-        m_Texture: {fileID: 2800000, guid: c517387798f163e40b4dcb24237900c1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4c9b9243b2529024aa36a9ba186f2b64, type: 3}
         m_Scale: {x: 50, y: 5}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2b444486606400d4eab2ff77432a06ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThirdTex:
-        m_Texture: {fileID: 2800000, guid: 1d9e319b01fd4c2409059bf596fbd4fc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b444486606400d4eab2ff77432a06ba, type: 3}
         m_Scale: {x: 50, y: 5}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _BumpScale: 0.5
+    - _Cutoff: 0.202
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0.097
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
+    - _Parallax: 0.0139
+    - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

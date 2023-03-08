@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Ceiling.001
+    second: {fileID: 2100000, guid: 10bb5cd87ea37dd4ca2d904a4aa4aa94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ChurchOutside
     second: {fileID: 2100000, guid: 06322b6e728931c42b3e930c130642c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChurchOutside.1
+    second: {fileID: 2100000, guid: 2a8f27a1b78ff4c4d856c11ca99b9020, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,8 +32,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Floor.001
+    second: {fileID: 2100000, guid: f507d9895b5333343924db48393f746c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Foundation
+    second: {fileID: 2100000, guid: d75c8c27c056c7749b5f3f22f6e6d6b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InteriorChurch
+    second: {fileID: 2100000, guid: 880e9db1aaa18bc46b6d11c939669551, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Roof
     second: {fileID: 2100000, guid: 5fb473b5da6bc2344895d610c30def16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stairs
+    second: {fileID: 2100000, guid: 322abdaf914f02e4ba3eb80a64c5eff1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
