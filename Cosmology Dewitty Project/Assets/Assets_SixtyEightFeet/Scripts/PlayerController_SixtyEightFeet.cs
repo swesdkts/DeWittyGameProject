@@ -13,6 +13,7 @@ public class PlayerController_SixtyEightFeet : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
     }
 
