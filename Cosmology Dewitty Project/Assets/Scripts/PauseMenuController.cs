@@ -31,7 +31,7 @@ public class PauseMenuController : MonoBehaviour
 
         if (pauseMenu != null)
         {
-            HideOverlay();
+            pauseMenu.enabled = false;
         }
 
         slider.value = playerCamera.GetComponent<CameraController>().mouseSensitivity;
@@ -54,17 +54,21 @@ public class PauseMenuController : MonoBehaviour
         #region Show Overlay if it Exists
         if (pauseMenu)
         {
-            if (pauseMenuDeployed)
+            // Keeps the player from breaking the animation if they spam the Escape key.
+            if (pauseMenu.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Showing" || pauseMenu.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Hiding")
             {
-                Time.timeScale = 1;
-                HideOverlay();
-                return;
-            }
+                if (pauseMenuDeployed)
+                {
+                    Time.timeScale = 1;
+                    StartCoroutine(HideOverlay());
+                    return;
+                }
 
-            if (!pauseMenuDeployed)
-            {
-                DeployOverlay();
-                Time.timeScale = 0;
+                if (!pauseMenuDeployed)
+                {
+                    DeployOverlay();
+                    Time.timeScale = 0;
+                }
             }
         }
         #endregion
@@ -72,7 +76,9 @@ public class PauseMenuController : MonoBehaviour
 
     public void DeployOverlay()
     {
+        // Shows the canvas to the player and allows the "Show" animation to play.
         pauseMenu.enabled = true;
+        pauseMenu.GetComponent<Animator>().SetBool("Showing", true);
 
         pauseMenuDeployed = true;
 
@@ -81,12 +87,14 @@ public class PauseMenuController : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void HideOverlay()
+    public IEnumerator HideOverlay()
     {
+        // Allows the "Hide" animation to play and waits roughly until it's done playing.
+        pauseMenu.GetComponent<Animator>().SetBool("Showing", false);
+        yield return new WaitForSecondsRealtime(0.63f);
         pauseMenu.enabled = false;
-
+        
         pauseMenuDeployed = false;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         playerCamera.GetComponent<CameraController>().allowRotate = true;
