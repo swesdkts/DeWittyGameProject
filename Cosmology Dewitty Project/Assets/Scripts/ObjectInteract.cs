@@ -157,4 +157,10 @@ public class ObjectInteract : MonoBehaviour
     {
         particleSystemToTrigger.Play();
     }
+
+    /*public void PickUpObject()
+    {
+
+    }*/
+
 }
