@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5738823866224412144}
   - component: {fileID: 5738823866224412145}
   - component: {fileID: 5738823866224412146}
+  - component: {fileID: 5738823866319244129}
   m_Layer: 0
   m_Name: Player_SixtyEightFeet
   m_TagString: Player
@@ -222,3 +223,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  allowMove: 1
+--- !u!114 &5738823866319244129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738823866224412147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c9d7ff4ea053348b2263e76e330eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needMouseAccess: 1
+  pauseMenu: {fileID: 0}
+  pauseMenuDeployed: 0

@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 1965012485}
   - component: {fileID: 1965012484}
   m_Layer: 5
-  m_Name: Pause Text
+  m_Name: Paused Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,7 +1497,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1948533857422647711}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1933,7 +1933,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1948533857422647711}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2036,7 +2036,7 @@ RectTransform:
   m_Children:
   - {fileID: 1948533858331242332}
   m_Father: {fileID: 1948533857422647711}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2270,12 +2270,12 @@ RectTransform:
   m_Children:
   - {fileID: 1948533857347728741}
   - {fileID: 4007419919892237451}
-  - {fileID: 1948533857004598081}
+  - {fileID: 1965012483}
   - {fileID: 696049892}
+  - {fileID: 1948533857004598081}
   - {fileID: 1948533857258300373}
   - {fileID: 4007419919112848310}
   - {fileID: 1948533858074487361}
-  - {fileID: 1965012483}
   m_Father: {fileID: 202269487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2489,7 +2489,7 @@ RectTransform:
   m_Children:
   - {fileID: 1948533857505231983}
   m_Father: {fileID: 1948533857422647711}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2875,7 +2875,7 @@ RectTransform:
   m_Children:
   - {fileID: 4007419918528783684}
   m_Father: {fileID: 1948533857422647711}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3345,25 +3345,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_SixtyEightFeet
       objectReference: {fileID: 0}
+    - target: {fileID: 5738823866319244129, guid: b1f57852b04907640b709998a1b9204a, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1948533857422647708}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1f57852b04907640b709998a1b9204a, type: 3}
---- !u!1 &5738823866319244128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5738823866224412147, guid: b1f57852b04907640b709998a1b9204a, type: 3}
+--- !u!114 &5738823866319244129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5738823866319244129, guid: b1f57852b04907640b709998a1b9204a, type: 3}
   m_PrefabInstance: {fileID: 5738823866319244127}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5738823866319244129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5738823866319244128}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4c9d7ff4ea053348b2263e76e330eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needMouseAccess: 1
-  pauseMenu: {fileID: 1948533857422647708}
-  pauseMenuDeployed: 0
