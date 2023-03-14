@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CrossfadeController : MonoBehaviour
 {
     private Animator animator;
+    private PauseMenuController pauseMenu;
 
     public float waitTime; // Default is 1
 
@@ -13,6 +14,7 @@ public class CrossfadeController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        pauseMenu = GameObject.FindGameObjectWithTag("Player").GetComponent<PauseMenuController>();
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
@@ -42,19 +44,22 @@ public class CrossfadeController : MonoBehaviour
 
     public void ResetScene()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         StartCoroutine(LoadSceneCoroutine(SceneManager.GetActiveScene().buildIndex));
+        pauseMenu.TryInteract("exitingScene");
     }
 
     public void ExitToMuseum()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         StartCoroutine(LoadSceneCoroutine(0));
+        pauseMenu.TryInteract("exitingScene");
     }
 
     public void ExitGame()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         StartCoroutine(ExitGameCoroutine());
+        pauseMenu.TryInteract("exitingScene");
     }
 }

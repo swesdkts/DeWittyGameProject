@@ -49,7 +49,8 @@ public class PauseMenuController : MonoBehaviour
         slider.value = Mathf.Round(slider.value * 10)/10;
     }
 
-    public void TryInteract()
+    // Call TryInteract(exitingScene); if you're managing scenes. Otherwise, just use TryInteract();
+    public void TryInteract(string customizedInteraction = "default")
     {
         #region Show Overlay if it Exists
         if (pauseMenu)
@@ -59,15 +60,13 @@ public class PauseMenuController : MonoBehaviour
             {
                 if (pauseMenuDeployed)
                 {
-                    Time.timeScale = 1;
-                    StartCoroutine(HideOverlay());
+                    StartCoroutine(HideOverlay(customizedInteraction));
                     return;
                 }
 
                 if (!pauseMenuDeployed)
                 {
                     DeployOverlay();
-                    Time.timeScale = 0;
                 }
             }
         }
@@ -76,6 +75,8 @@ public class PauseMenuController : MonoBehaviour
 
     public void DeployOverlay()
     {
+        Time.timeScale = 0;
+
         // Shows the canvas to the player and allows the "Show" animation to play.
         pauseMenu.enabled = true;
         pauseMenu.GetComponent<Animator>().SetBool("Showing", true);
@@ -87,17 +88,24 @@ public class PauseMenuController : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public IEnumerator HideOverlay()
+    /* Allows the parameter in the TryInteract() function to be passed to this coroutine. 
+       Leave the argument blank for its default running sequence when starting the coroutine. */
+    public IEnumerator HideOverlay(string customizedInteraction = "default")
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         // Allows the "Hide" animation to play and waits roughly until it's done playing.
         pauseMenu.GetComponent<Animator>().SetBool("Showing", false);
         yield return new WaitForSecondsRealtime(0.63f);
         pauseMenu.enabled = false;
-        
         pauseMenuDeployed = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        playerCamera.GetComponent<CameraController>().allowRotate = true;
+
+        if (customizedInteraction != "exitingScene")
+        {
+            playerCamera.GetComponent<CameraController>().allowRotate = true;
+            Time.timeScale = 1;
+        }
     }
 
     public void updateSensitivity(float value)
