@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class CrossfadeController : MonoBehaviour
 {
     private Animator animator;
-    private PauseMenuController pauseMenu;
+    private PauseMenuController3D pauseMenu3D;
+    private PauseMenuController2D pauseMenu2D;
 
     public float waitTime; // Default is 1
 
@@ -14,7 +15,8 @@ public class CrossfadeController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        pauseMenu = GameObject.FindGameObjectWithTag("Player").GetComponent<PauseMenuController>();
+        pauseMenu3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PauseMenuController3D>();
+        pauseMenu2D = GameObject.FindGameObjectWithTag("Player").GetComponent<PauseMenuController2D>();
     }
 
     /* An IEnumerator for loading scenes with the crossfade animation. 
@@ -46,20 +48,48 @@ public class CrossfadeController : MonoBehaviour
     {
         //Time.timeScale = 1;
         StartCoroutine(LoadSceneCoroutine(SceneManager.GetActiveScene().buildIndex));
-        pauseMenu.TryInteract("exitingScene");
+
+        if (pauseMenu3D != null)
+        {
+            pauseMenu3D.TryInteract("exitingScene");
+            return;
+        }
+        else if (pauseMenu2D != null)
+        {
+            pauseMenu2D.TryInteract("exitingScene");
+        }
+        
     }
 
     public void ExitToMuseum()
     {
         //Time.timeScale = 1;
         StartCoroutine(LoadSceneCoroutine(0));
-        pauseMenu.TryInteract("exitingScene");
+
+        if (pauseMenu3D != null)
+        {
+            pauseMenu3D.TryInteract("exitingScene");
+            return;
+        }
+        else if (pauseMenu2D != null)
+        {
+            pauseMenu2D.TryInteract("exitingScene");
+        }
     }
 
     public void ExitGame()
     {
         //Time.timeScale = 1;
         StartCoroutine(ExitGameCoroutine());
-        pauseMenu.TryInteract("exitingScene");
+
+        if (pauseMenu3D != null)
+        {
+            pauseMenu3D.TryInteract("exitingScene");
+            return;
+        }
+        else if (pauseMenu2D != null)
+        {
+            pauseMenu2D.TryInteract("exitingScene");
+        }
     }
 }
