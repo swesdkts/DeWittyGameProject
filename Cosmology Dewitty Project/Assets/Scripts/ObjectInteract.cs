@@ -49,7 +49,7 @@ public class ObjectInteract : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetKeyDown(KeyCode.Escape)) && objectInfoOverlayDeployed)
         {
-            if (player.GetComponent<PauseMenuController>().pauseMenuDeployed == false)
+            if (player.GetComponent<PauseMenuController3D>().pauseMenuDeployed == false)
             {
                 TryInteract();
                 if (switchSceneAfterInteract && playerInRange)

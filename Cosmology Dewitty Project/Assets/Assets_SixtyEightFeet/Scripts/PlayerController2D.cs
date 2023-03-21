@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController_SixtyEightFeet : MonoBehaviour
+public class PlayerController2D : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector2 moveInput;

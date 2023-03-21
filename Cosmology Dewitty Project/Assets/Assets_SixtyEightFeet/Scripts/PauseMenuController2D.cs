@@ -4,19 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController2D : MonoBehaviour
 {
-    #region Player
-    public GameObject playerCamera;
-    GameObject player;
-    #endregion
-
     #region Overlay Information
-    [Header("Pause Menu UI")]
     public Canvas pauseMenu;
-    public Slider slider;
-    public TextMeshProUGUI sensitivityText;
-    [HideInInspector] public bool pauseMenuDeployed = false;
+    GameObject player;
+
+    public bool pauseMenuDeployed = false;
     #endregion
 
     void Awake()
@@ -31,31 +25,24 @@ public class PauseMenuController : MonoBehaviour
 
         if (pauseMenu != null)
         {
-            pauseMenu.enabled = false;
+            HideOverlay();
         }
-
-        slider.value = playerCamera.GetComponent<CameraController>().mouseSensitivity;
-        sensitivityText.text = slider.value.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((player.GetComponent<PlayerController>().allowMove) && (Input.GetKeyDown(KeyCode.Escape)))
+        if ((player.GetComponent<PlayerController2D>().allowMove) && (Input.GetKeyDown(KeyCode.Escape)))
         {
             TryInteract();
         }
-
-        slider.value = Mathf.Round(slider.value * 10)/10;
     }
 
-    // Call TryInteract(exitingScene); if you're managing scenes. Otherwise, just use TryInteract();
     public void TryInteract(string customizedInteraction = "default")
     {
         #region Show Overlay if it Exists
         if (pauseMenu)
         {
-            // Keeps the player from breaking the animation if they spam the Escape key.
             if (pauseMenu.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Showing" || pauseMenu.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Hiding")
             {
                 if (pauseMenuDeployed)
@@ -83,7 +70,6 @@ public class PauseMenuController : MonoBehaviour
 
         pauseMenuDeployed = true;
 
-        playerCamera.GetComponent<CameraController>().allowRotate = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -103,14 +89,7 @@ public class PauseMenuController : MonoBehaviour
 
         if (customizedInteraction != "exitingScene")
         {
-            playerCamera.GetComponent<CameraController>().allowRotate = true;
             Time.timeScale = 1;
         }
-    }
-
-    public void updateSensitivity(float value)
-    {
-        playerCamera.GetComponent<CameraController>().mouseSensitivity = slider.value;
-        sensitivityText.text = slider.value.ToString();
     }
 }
