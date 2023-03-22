@@ -2201,6 +2201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3D_Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 4938994165121652507, guid: 15c388f5188daf845a5a10fe7aa88583, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5113423980721219527, guid: 15c388f5188daf845a5a10fe7aa88583, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
