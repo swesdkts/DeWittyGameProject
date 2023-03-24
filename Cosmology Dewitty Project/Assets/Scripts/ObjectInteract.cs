@@ -12,16 +12,20 @@ public class ObjectInteract : MonoBehaviour
     [HideInInspector] public bool pressToInteractOverlayDeployed = false;
     #endregion
 
+    #region Switch scene after interact
     [HideInInspector] public bool playerInRange = false;
     [Space(5)] public ParticleSystem particleSystemToTrigger;
     [SerializeField] public bool switchSceneAfterInteract = false;
     SwitchScene switchSceneCS;
+    #endregion
 
     #region Player and Mouse
     [Header("Player Access")]
     public GameObject player;
     public GameObject playerCamera;
     #endregion
+
+    bool canPickUp = false;
 
     #region Object Information Overlay
     [Header("Object Info Overlay (If Needed)")]
@@ -51,10 +55,17 @@ public class ObjectInteract : MonoBehaviour
         {
             if (player.GetComponent<PauseMenuController3D>().pauseMenuDeployed == false)
             {
-                TryInteract();
-                if (switchSceneAfterInteract && playerInRange)
+                if(canPickUp)
                 {
-                    switchSceneCS.TeleportTo();
+                    PickUpObject();
+                }
+                else
+                {
+                    TryInteract();
+                    if (switchSceneAfterInteract && playerInRange)
+                    {
+                        switchSceneCS.TeleportTo();
+                    }
                 }
             }
         }
@@ -158,9 +169,9 @@ public class ObjectInteract : MonoBehaviour
         particleSystemToTrigger.Play();
     }
 
-    /*public void PickUpObject()
+    public void PickUpObject()
     {
 
-    }*/
+    }
 
 }

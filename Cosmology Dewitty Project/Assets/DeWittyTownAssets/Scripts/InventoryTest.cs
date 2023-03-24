@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class InventoryTest : MonoBehaviour
 {
-    public GameObject itemPickup;
-
+    public bool hasBell;
+    [SerializeField] GameObject bellObject;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,10 @@ public class ItemPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Destroy(bellObject);
+            hasBell= true;
+        }
     }
-
-
 }
