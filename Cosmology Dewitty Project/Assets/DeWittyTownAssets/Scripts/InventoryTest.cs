@@ -5,7 +5,6 @@ using UnityEngine;
 public class InventoryTest : MonoBehaviour
 {
     public bool hasBell;
-    [SerializeField] GameObject bellObject;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +15,12 @@ public class InventoryTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            Destroy(bellObject);
-            hasBell= true;
-        }
+        
     }
+
+    public void AddToInv()
+    {
+        hasBell = true;
+    }
+
 }

@@ -25,7 +25,8 @@ public class ObjectInteract : MonoBehaviour
     public GameObject playerCamera;
     #endregion
 
-    bool canPickUp = false;
+    public bool canPickUp = false;
+    
 
     #region Object Information Overlay
     [Header("Object Info Overlay (If Needed)")]
@@ -55,7 +56,7 @@ public class ObjectInteract : MonoBehaviour
         {
             if (player.GetComponent<PauseMenuController3D>().pauseMenuDeployed == false)
             {
-                if(canPickUp)
+                if(canPickUp && playerInRange)
                 {
                     PickUpObject();
                 }
@@ -171,7 +172,15 @@ public class ObjectInteract : MonoBehaviour
 
     public void PickUpObject()
     {
-
+        InventoryTest inventoryTest;
+        inventoryTest = FindObjectOfType<InventoryTest>();
+        if (CompareTag("Bell"))
+        {
+            inventoryTest.AddToInv();
+            Destroy(gameObject);
+        }
+        
+        HidePressToInteractOverlay();
     }
 
 }

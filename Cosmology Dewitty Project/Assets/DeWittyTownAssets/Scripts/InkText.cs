@@ -7,17 +7,25 @@ using UnityEngine.UI;
 
 public class InkText : MonoBehaviour
 {
-    public TextAsset inkJson;
+    //public TextAsset inkJson;
     private Story story;
+
+    AccessDialogue dialogue;
 
     public TextMeshProUGUI textPrefab;
     public Button buttonPrefab;
 
+    private void Awake()
+    {
+        dialogue = FindObjectOfType<AccessDialogue>();
+    }
+
     // Start is called before the first frame update
     void Start()
     { 
+        
         // A new story is created using the inkJson file set in the unity inspector.
-        story = new Story(inkJson.text);
+        story = new Story(dialogue.inkJson.text);
 
         refreshUI();
     }

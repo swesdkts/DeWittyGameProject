@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class AccessDialogue : MonoBehaviour
 {
-    public GameObject itemPickup;
-
-
+    public TextAsset inkJson;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +17,9 @@ public class ItemPickup : MonoBehaviour
         
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+        inkJson = new TextAsset (inkJson.text);
+    }
 }
