@@ -27,6 +27,7 @@ public class ObjectInteract : MonoBehaviour
 
     public bool canPickUp = false;
     
+    public bool hasDialogue = false;
 
     #region Object Information Overlay
     [Header("Object Info Overlay (If Needed)")]
@@ -107,6 +108,10 @@ public class ObjectInteract : MonoBehaviour
         {
             DeployPressToInteractOverlay();
             playerInRange = true;
+            if (hasDialogue && playerInRange)
+            {
+                GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
         }
     }
 
