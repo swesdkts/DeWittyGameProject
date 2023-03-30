@@ -4925,7 +4925,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1635453484441947192
 MonoBehaviour:
@@ -4942,13 +4942,14 @@ MonoBehaviour:
   pressToInteractOverlayCanvas: {fileID: 0}
   pressToInteractOverlayDeployed: 0
   playerInRange: 0
+  particleSystemToTrigger: {fileID: 1635453483883015622}
   switchSceneAfterInteract: 1
-  needPlayerAccess: 0
   player: {fileID: 0}
   playerCamera: {fileID: 0}
+  canPickUp: 0
+  hasDialogue: 0
   objectInfoOverlayCanvas: {fileID: 0}
   objectInfoOverlayDeployed: 0
-  particleSystemToTrigger: {fileID: 1635453483883015622}
 --- !u!114 &1111592355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4961,7 +4962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ce8185ac5fa04aa40baf9bd08bbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 2.5
-  sceneToLoadIndex: 1
+  sceneBuildIndexToLoad: 0
   canTeleport: 1
   teleportParticles: {fileID: 0}

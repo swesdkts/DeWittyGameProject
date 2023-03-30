@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI dialogueText;
 
+    [SerializeField] Animator anim;
+
     private Queue<string> sentences;
 
     // Start is called before the first frame update
@@ -18,6 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        anim.SetBool("IsOpen", true);
+
         nameText.text = dialogue.name;
 
         //Clear previous sentences from queue
@@ -40,12 +44,24 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     void EndDialogue()
     {
-        Debug.Log("Conversation Over");
+        FindObjectOfType<ObjectInteract>().HideObjectInfoOverlay();
+        anim.SetBool("IsOpen", false);
     }
 
 }

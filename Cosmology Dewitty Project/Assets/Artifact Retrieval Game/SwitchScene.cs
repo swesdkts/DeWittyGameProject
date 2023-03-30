@@ -12,12 +12,15 @@ public class SwitchScene : MonoBehaviour
     ObjectInteract objInteract;
     [SerializeField] bool canTeleport;
 
+    GameObject player;
     [SerializeField] ParticleSystem teleportParticles;
 
     private void Awake()
     {
         objInteract = GetComponent<ObjectInteract>();
         crossfade = FindObjectOfType<CrossfadeController>();
+        player = GameObject.Find("Player");
+        teleportParticles = player.GetComponentInChildren<ParticleSystem>();
     }
 
     public void TeleportTo()
