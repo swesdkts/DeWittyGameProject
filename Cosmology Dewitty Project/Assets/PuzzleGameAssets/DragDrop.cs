@@ -29,16 +29,19 @@ public class DragDrop : MonoBehaviour
 
     public void DropObject()
     {
-        float Distance = Vector3.Distance(objectToDrag.transform.position, objectDragToPos.transform.position);
-        if (Distance < dropDistance)
+        if (!isLocked)
         {
-            isLocked = true;
-            objectToDrag.transform.position = objectDragToPos.transform.position;
-            puzzleController.IncreasePlacedPieces();
-        }
-        else
-        {
-            objectToDrag.transform.position = objectInitPos;
+            float Distance = Vector3.Distance(objectToDrag.transform.position, objectDragToPos.transform.position);
+            if (Distance < dropDistance)
+            {
+                isLocked = true;
+                objectToDrag.transform.position = objectDragToPos.transform.position;
+                puzzleController.IncreasePlacedPieces();
+            }
+            else
+            {
+                objectToDrag.transform.position = objectInitPos;
+            }
         }
     }
 }
