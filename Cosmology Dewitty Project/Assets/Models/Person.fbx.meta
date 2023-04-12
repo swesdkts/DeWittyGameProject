@@ -21,7 +21,27 @@ ModelImporter:
   - first:
       74: 4459998956246525524
     second: Armature|WackyIdle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arms
+    second: {fileID: 2100000, guid: 8cc6215e4503d69479f6cfff8ee14462, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: b1ee456b52a40b0439c1b6314ada50a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 336cebd72ef95304c9cf0ecca50290c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Torso
+    second: {fileID: 2100000, guid: ac5026e5c0b837f49a2e880d64381095, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
