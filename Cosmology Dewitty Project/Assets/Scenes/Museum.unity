@@ -2011,6 +2011,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bead1cabfb96f4c489fe7267a904fe26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &684267006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3984554228949813521, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
+  m_PrefabInstance: {fileID: 696612301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5cf64c861b3b54f8b9c2df74e6efd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &684344763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,8 +2575,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+      - m_Target: {fileID: 684267006}
+        m_TargetAssemblyTypeName: PauseMenuController3D, Assembly-CSharp
         m_MethodName: TryInteract
         m_Mode: 5
         m_Arguments:
