@@ -5804,8 +5804,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+      - m_Target: {fileID: 684267006}
+        m_TargetAssemblyTypeName: PauseMenuController3D, Assembly-CSharp
         m_MethodName: updateSensitivity
         m_Mode: 0
         m_Arguments:
