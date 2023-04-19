@@ -10,7 +10,7 @@ ModelImporter:
       name: PT_Grass_Mat
     second: {fileID: 2100000, guid: 520451ad8fba0ed40a873045d3d4989b, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 1
     materialSearch: 1
     materialLocation: 1
