@@ -181,9 +181,11 @@ public class ObjectInteract : MonoBehaviour
         inventoryTest = FindObjectOfType<InventoryTest>();
         if (CompareTag("Bell"))
         {
-            inventoryTest.AddToInv();
+            inventoryTest.AddBell();
             Destroy(gameObject);
         }
+        
+        
         
         HidePressToInteractOverlay();
     }

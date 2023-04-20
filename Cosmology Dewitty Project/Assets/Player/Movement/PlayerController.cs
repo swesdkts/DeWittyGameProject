@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]Canvas inventoryMenu;
+
     #region Gravity
     Vector3 velocity;
     
@@ -30,12 +32,14 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        inventoryMenu.enabled= false;
         controls = new InputMaster();
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
+        OpenInventory();
         Gravity();
 
         if (allowMove)
@@ -78,6 +82,27 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         controls.Disable();
+    }
+    #endregion
+
+    #region Activate/Disable Inventory Screen
+    void OpenInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!inventoryMenu.enabled)
+            {
+                inventoryMenu.enabled = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                inventoryMenu.enabled = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
     #endregion
 }
