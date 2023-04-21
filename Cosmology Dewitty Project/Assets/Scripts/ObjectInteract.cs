@@ -41,7 +41,7 @@ public class ObjectInteract : MonoBehaviour
     {
         switchSceneCS = GetComponent<SwitchScene>();
         player = GameObject.Find("Player");
-        playerCamera = GameObject.Find("Main Camera");
+        playerCamera = GameObject.Find("Player Camera");
 
         if (objectInfoOverlayCanvas != null)
         {
