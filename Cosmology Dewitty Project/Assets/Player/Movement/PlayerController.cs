@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     InputMaster controls;
     CharacterController controller;
     Vector2 move;
+    [SerializeField] GameObject playerCamera;
+    [HideInInspector] public bool allowViewBobbing = true;
 
     [HideInInspector] public bool allowMove = true;
     float moveSpeed = 7;
@@ -45,6 +47,20 @@ public class PlayerController : MonoBehaviour
         if (allowMove)
         {
             playerMovement();
+
+            /* If the player moves and view bobbing is enabled, the view bobbing animation will play.
+               NOTICE: If you're looking for the code for the foot step or foot lift sound, refer to the CameraController script.*/
+            if (allowViewBobbing)
+            {
+                if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+                {
+                    playerCamera.GetComponent<Animator>().SetBool("isMoving", true);
+                }
+                else
+                {
+                    playerCamera.GetComponent<Animator>().SetBool("isMoving", false);
+                }
+            }
         }
     }
 
@@ -102,6 +118,20 @@ public class PlayerController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
+        }
+    }
+    #endregion
+
+    #region Toggling View Bobbing
+    public void ToggleViewBobbing()
+    {
+        if (allowViewBobbing)
+        {
+            allowViewBobbing = false;
+        }
+        if (!allowViewBobbing)
+        {
+            allowViewBobbing = true;
         }
     }
     #endregion

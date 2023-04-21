@@ -16,6 +16,9 @@ public class CameraController : MonoBehaviour
     [HideInInspector] public bool allowRotate = true;
     #endregion
 
+    public AudioSource footLift;
+    public AudioSource footStep;
+
     void Awake()
     {
         // Gets the transform position of the Player, which is the parent object.
@@ -46,6 +49,16 @@ public class CameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         playerBody.Rotate(Vector3.up * horizontalMouse);
+    }
+
+    public void PlayFootLiftSound()
+    {
+        footLift.Play();
+    }
+
+    public void PlayFootStepSound()
+    {
+        footStep.Play();
     }
 
 
