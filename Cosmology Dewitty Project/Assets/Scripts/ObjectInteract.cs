@@ -185,7 +185,11 @@ public class ObjectInteract : MonoBehaviour
             Destroy(gameObject);
         }
         
-        
+        if (CompareTag("Shovel"))
+        {
+            inventoryTest.AddShovel();
+            Destroy(gameObject);
+        }
         
         HidePressToInteractOverlay();
     }
