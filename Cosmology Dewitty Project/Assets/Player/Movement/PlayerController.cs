@@ -127,11 +127,17 @@ public class PlayerController : MonoBehaviour
     {
         if (allowViewBobbing)
         {
+            print("starting");
             allowViewBobbing = false;
+            playerCamera.GetComponent<Animator>().SetBool("allowViewBobbing", false);
+            print("finished");
         }
-        if (!allowViewBobbing)
+        else if (!allowViewBobbing)
         {
+            print("starting");
             allowViewBobbing = true;
+            playerCamera.GetComponent<Animator>().SetBool("allowViewBobbing", true);
+            print("finished");
         }
     }
     #endregion
