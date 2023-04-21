@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]Canvas inventoryMenu;
+    public Canvas inventoryMenu;
+    [SerializeField] GameObject inventoryObj;
 
     #region Gravity
     Vector3 velocity;
@@ -34,6 +35,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        inventoryObj = GameObject.Find("InventoryMenu");
+        if(inventoryObj != null)
+        {
+            inventoryMenu = inventoryObj.GetComponent<Canvas>();
+        }
+        
         inventoryMenu.enabled= false;
         controls = new InputMaster();
         controller = GetComponent<CharacterController>();
