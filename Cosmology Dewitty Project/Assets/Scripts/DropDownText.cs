@@ -6,7 +6,7 @@ using UnityEngine;
 public class DropDownText : MonoBehaviour
 {
     [SerializeField] GameObject textInformation;
-
+    bool textOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,16 @@ public class DropDownText : MonoBehaviour
 
     public void ItemClick()
     {
-        textInformation.SetActive(true);
+        if(!textInformation.activeSelf)
+        {
+            textInformation.SetActive(true);
+            textOpen = true;
+        }
+        
+        else
+        {
+            textInformation.SetActive(false);
+        }
     }
 
 }
