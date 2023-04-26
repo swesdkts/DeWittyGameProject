@@ -9,7 +9,6 @@ TagManager:
   - Dropoff Point
   - Crossfade
   - Bell
-  - Shovel
   layers:
   - Default
   - TransparentFX
