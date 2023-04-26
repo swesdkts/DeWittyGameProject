@@ -7,8 +7,8 @@ public class InventoryTest : MonoBehaviour
 {
     [SerializeField] GameObject bellInfo;
     [SerializeField] GameObject shovelInfo;
-    bool hasBell;
-    bool hasShovel;
+    public bool hasBell;
+    public bool hasShovel;
 
     private void Awake()
     {
@@ -38,6 +38,21 @@ public class InventoryTest : MonoBehaviour
     {
         hasShovel = true;
         shovelInfo.SetActive(true);
+    }
+
+    public void AddToInv()
+    {
+        if (CompareTag("Bell"))
+        {
+            AddBell();
+            Destroy(GameObject.FindGameObjectWithTag("Bell"));
+        }
+
+        if (CompareTag("Shovel"))
+        {
+            AddShovel();
+            Destroy(gameObject);
+        }
     }
 
 }
