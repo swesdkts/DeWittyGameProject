@@ -43,7 +43,7 @@ public class ObjectInteract : MonoBehaviour
         inventoryTest = FindObjectOfType<InventoryTest>();
         switchSceneCS = GetComponent<SwitchScene>();
         player = GameObject.Find("Player");
-        playerCamera = GameObject.Find("Player Camera");
+        playerCamera = GameObject.Find("Main Camera");
 
         if (objectInfoOverlayCanvas != null)
         {

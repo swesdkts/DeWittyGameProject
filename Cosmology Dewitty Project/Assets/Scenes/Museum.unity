@@ -3087,6 +3087,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1819151804}
     - target: {fileID: 3984554228949813523, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1819151795}
+    - target: {fileID: 3984554228949813523, guid: d87594ec2fe8ec44da02e2b8bf93c331, type: 3}
       propertyPath: inventoryMenu
       value: 
       objectReference: {fileID: 1591310619}
