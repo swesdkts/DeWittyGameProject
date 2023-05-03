@@ -26,7 +26,6 @@ public class ObjectInteract : MonoBehaviour
     #endregion
 
     public bool canPickUp = false;
-    InventoryTest inventoryTest;
 
     public bool hasDialogue = false;
 
@@ -40,10 +39,9 @@ public class ObjectInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryTest = FindObjectOfType<InventoryTest>();
         switchSceneCS = GetComponent<SwitchScene>();
         player = GameObject.Find("Player");
-        playerCamera = GameObject.Find("Main Camera");
+        playerCamera = GameObject.Find("Player Camera");
 
         if (objectInfoOverlayCanvas != null)
         {
@@ -179,10 +177,9 @@ public class ObjectInteract : MonoBehaviour
 
     public void PickUpObject()
     {
-        //InventoryTest inventoryTest;
-        //inventoryTest = FindObjectOfType<InventoryTest>();
-        inventoryTest.AddToInv();
-        /*if (CompareTag("Bell"))
+        InventoryTest inventoryTest;
+        inventoryTest = FindObjectOfType<InventoryTest>();
+        if (CompareTag("Bell"))
         {
             inventoryTest.AddBell();
             Destroy(gameObject);
@@ -192,8 +189,14 @@ public class ObjectInteract : MonoBehaviour
         {
             inventoryTest.AddShovel();
             Destroy(gameObject);
-        }*/
+        }
         
+        if(CompareTag("Third artifact"))
+        {
+            inventoryTest.AddArtifact();
+            Destroy(gameObject);
+        }
+
         HidePressToInteractOverlay();
     }
 
