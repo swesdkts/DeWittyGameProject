@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.7650608, g: 1, b: 0.6367924, a: 0}
   m_FogMode: 1
-  m_FogDensity: 0.01
-  m_LinearFogStart: 100
-  m_LinearFogEnd: 500
+  m_FogDensity: 0.03
+  m_LinearFogStart: 10
+  m_LinearFogEnd: 1000
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -410,6 +410,9 @@ MonoBehaviour:
       Your voice can be heard\n\t\t       From Heaven to Hell\n\t\t       Copper
       and tin was destined\n\t\t       To be shaped and polished\n\t\t       Into
       a beautiful instrument"
+  startBellQuest: 0
+  startShovelQuest: 0
+  startArtifactQuest: 0
 --- !u!114 &43288867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +905,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213276959}
   m_CullTransparentMesh: 1
+--- !u!1 &242866600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242866602}
+  - component: {fileID: 242866601}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &242866601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242866600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1107d1f1ded5e045abbac2903a61357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bellGameobj: {fileID: 1743624056}
+  shovelGameobj: {fileID: 1680850598}
+  artifactGameobj: {fileID: 23710758}
+--- !u!4 &242866602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242866600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &255827760
 Transform:
   m_ObjectHideFlags: 0
@@ -7481,6 +7531,10 @@ PrefabInstance:
       propertyPath: dialogue.name
       value: Goldie Walker
       objectReference: {fileID: 0}
+    - target: {fileID: 12704755920288245, guid: 10f99af34bf8a7d4fa87948f4935c5b9, type: 3}
+      propertyPath: startShovelQuest
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 551580545610241934, guid: 10f99af34bf8a7d4fa87948f4935c5b9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7579,7 +7633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1052722062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7606,6 +7660,9 @@ MonoBehaviour:
       to hear it is gone.
     - I know that even if he hasnt seen it he will help you look for it, the man
       just absolutely adores that bell.
+  startBellQuest: 0
+  startShovelQuest: 0
+  startArtifactQuest: 1
 --- !u!135 &1052722063
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10297,54 +10354,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2146686959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2146686961}
-  - component: {fileID: 2146686960}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2146686960
+--- !u!114 &2146686960 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5627533389675197110, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+  m_PrefabInstance: {fileID: 5627533389231727942}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146686959}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a77b36ca6a1f4f40bafe3dc340f5472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: 0
-  nameText: {fileID: 1206566478}
-  dialogueText: {fileID: 1394446210}
-  anim: {fileID: 483218983}
---- !u!4 &2146686961
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146686959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &12704755237716829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10371,6 +10391,10 @@ PrefabInstance:
     - target: {fileID: 12704755920288245, guid: 10f99af34bf8a7d4fa87948f4935c5b9, type: 3}
       propertyPath: dialogue.name
       value: Rev. Oliver J. Burkhardt
+      objectReference: {fileID: 0}
+    - target: {fileID: 12704755920288245, guid: 10f99af34bf8a7d4fa87948f4935c5b9, type: 3}
+      propertyPath: startBellQuest
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 551580545610241934, guid: 10f99af34bf8a7d4fa87948f4935c5b9, type: 3}
       propertyPath: m_RootOrder
@@ -10833,7 +10857,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 3000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -10891,6 +10915,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &5627533389231727942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5627533389675197097, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197110, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 483218983}
+    - target: {fileID: 5627533389675197110, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1206566478}
+    - target: {fileID: 5627533389675197110, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1394446210}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627533389675197111, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8587d2f861c0dac4b8ea875425cc3d27, type: 3}
 --- !u!1001 &5838903392256932254
 PrefabInstance:
   m_ObjectHideFlags: 0

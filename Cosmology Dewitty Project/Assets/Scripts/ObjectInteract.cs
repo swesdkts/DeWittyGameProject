@@ -111,6 +111,18 @@ public class ObjectInteract : MonoBehaviour
             if (hasDialogue && playerInRange)
             {
                 GetComponent<DialogueTrigger>().TriggerDialogue();
+                if(GetComponent<DialogueTrigger>().startBellQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartBellQuest();
+                }
+                if (GetComponent<DialogueTrigger>().startShovelQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartShovelQuest();
+                }
+                if (GetComponent<DialogueTrigger>().startArtifactQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartArtifact();
+                }
             }
         }
     }
