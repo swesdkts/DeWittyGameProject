@@ -26,7 +26,7 @@ public class ObjectInteract : MonoBehaviour
     #endregion
 
     public bool canPickUp = false;
-    
+
     public bool hasDialogue = false;
 
     #region Object Information Overlay
@@ -111,6 +111,18 @@ public class ObjectInteract : MonoBehaviour
             if (hasDialogue && playerInRange)
             {
                 GetComponent<DialogueTrigger>().TriggerDialogue();
+                if(GetComponent<DialogueTrigger>().startBellQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartBellQuest();
+                }
+                if (GetComponent<DialogueTrigger>().startShovelQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartShovelQuest();
+                }
+                if (GetComponent<DialogueTrigger>().startArtifactQuest)
+                {
+                    FindObjectOfType<QuestManager>().StartArtifact();
+                }
             }
         }
     }
@@ -191,6 +203,12 @@ public class ObjectInteract : MonoBehaviour
             Destroy(gameObject);
         }
         
+        if(CompareTag("Third artifact"))
+        {
+            inventoryTest.AddArtifact();
+            Destroy(gameObject);
+        }
+
         HidePressToInteractOverlay();
     }
 

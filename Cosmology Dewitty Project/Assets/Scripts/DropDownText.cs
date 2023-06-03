@@ -2,35 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DropDownText : MonoBehaviour
+public class DropDownText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] GameObject textInformation;
-    bool textOpen;
-    // Start is called before the first frame update
+    
     void Start()
     {
         textInformation.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        textInformation.SetActive(true);
     }
 
-    public void ItemClick()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        if(!textInformation.activeSelf)
-        {
-            textInformation.SetActive(true);
-            textOpen = true;
-        }
-        
-        else
-        {
-            textInformation.SetActive(false);
-        }
+        textInformation.SetActive(false);
     }
-
 }

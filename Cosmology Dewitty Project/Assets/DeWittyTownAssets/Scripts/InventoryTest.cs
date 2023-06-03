@@ -7,11 +7,15 @@ public class InventoryTest : MonoBehaviour
 {
     [SerializeField] GameObject bellInfo;
     [SerializeField] GameObject shovelInfo;
-    bool hasBell;
-    bool hasShovel;
+    [SerializeField] GameObject finalObject;
+    public bool hasBell;
+    public bool hasShovel;
+    public bool hasArtifact;
+    bool levelComplete;
 
     private void Awake()
     {
+        finalObject.SetActive(false);
         bellInfo.SetActive(false);
         shovelInfo.SetActive(false);
     }
@@ -25,6 +29,10 @@ public class InventoryTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasBell && hasShovel && hasArtifact)
+        {
+            LevelComplete();
+        }
         
     }
 
@@ -39,5 +47,39 @@ public class InventoryTest : MonoBehaviour
         hasShovel = true;
         shovelInfo.SetActive(true);
     }
+
+    public void AddArtifact()
+    {
+        hasArtifact = true;
+    }
+
+    void LevelComplete()
+    {
+        if (!levelComplete)
+        {
+            finalObject.SetActive(true);
+            levelComplete = true;
+        }
+
+        else
+        {
+            return;
+        }
+    }
+
+    /*public void AddToInv()
+    {
+        if (CompareTag("Bell"))
+        {
+            AddBell();
+            Destroy(GameObject.FindGameObjectWithTag("Bell"));
+        }
+
+        if (CompareTag("Shovel"))
+        {
+            AddShovel();
+            Destroy(gameObject);
+        }
+    }*/
 
 }

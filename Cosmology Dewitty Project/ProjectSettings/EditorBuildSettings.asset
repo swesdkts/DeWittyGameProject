@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: a2ef5293a9fdef34e906ff05ef5e2c0e
+  - enabled: 1
     path: Assets/Scenes/Museum.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/DewittyTown.unity
     guid: 0f81bda2a2b643f4a9d0dc01ba4ee1ba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Assets_SixtyEightFeet/Scenes/68 Feet.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
