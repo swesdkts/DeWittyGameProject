@@ -42,17 +42,5 @@ public class SwitchScene : MonoBehaviour
 
         crossfade.LoadScene(sceneBuildIndexToLoad);
     }
-
-    public void StartGame()
-    {
-        StartCoroutine(TeleportCoroutine());
-        
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
 }
 
