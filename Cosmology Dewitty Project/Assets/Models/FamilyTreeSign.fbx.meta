@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d2f407540637366458c35cb99888216b
+guid: 67c44b79ff441df41aaf0ef705416f53
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,10 +7,15 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: cd1d741cd52dd9b4dbdb755e56047186, type: 2}
+      name: PictureMaterial
+    second: {fileID: 2100000, guid: a78f4d90dae24074483190a35b55443e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SignMaterial
+    second: {fileID: 2100000, guid: 89b728e062346e04ba93669297f8b252, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
